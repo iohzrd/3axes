@@ -139,42 +139,33 @@ div.text-wrapper {
     color: #222222;
     display: inline-block;
 }
-div.equality {
-    background-color: #f44336;
+div.collectivism {
+    background-color: #ff0000;
     text-align: left;
     border-right-style: solid;
 }
-div.wealth {
-    background-color: #00897b;
+div.privatism {
+    background-color: #ff9800;
+    
     text-align: right;
     border-left-style: solid;
 }
-div.liberty {
-    background-color: #ffeb3b;
-    text-align: left;
-    border-right-style: solid;
-}
-div.authority {
-    background-color: #3f51b5;
-    text-align: right;
-    border-left-style: solid;
-}
-div.peace {
+div.globalism {
     background-color: #03a9f4;
     text-align: right;
     border-left-style: solid;
 }
-div.might {
-    background-color: #ff9800;
+div.individualism {
+    background-color: #ffeb3b;
     text-align: left;
     border-right-style: solid;
 }
-div.progress {
+div.diversity {
     background-color: #9c27b0;
     text-align: right;
     border-left-style: solid;
 }
-div.tradition {
+div.cohesion {
     background-color: #8bc34a;
     text-align: left;
     border-right-style: solid;
