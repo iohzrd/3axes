@@ -1,58 +1,58 @@
 ideologies = [
     {
-        "name": "Anarcho-Communism",
+        "name": "Communism",
         "stats": {
-            "idty": 95,
-            "prop": 95,
-            "scty": 95
+            "idty": 90,
+            "prop": 90,
+            "cult": 90
         }
     },
     {
         "name": "National Bolshevism",
         "stats": {
             "idty": 15,
-            "prop": 95,
-            "scty": 20
+            "prop": 90,
+            "cult": 20
         }
     },
     {
         "name": "Stalinism/Maoism",
         "stats": {
             "idty": 30,
-            "prop": 95,
-            "scty": 50
+            "prop": 90,
+            "cult": 50
         }
     },
     {
         "name": "Trotskyism",
         "stats": {
-            "idty": 95,
-            "prop": 95,
-            "scty": 80
+            "idty": 90,
+            "prop": 90,
+            "cult": 80
         }
     },
     {
         "name": "Marxism",
         "stats": {
             "idty": 70,
-            "prop": 95,
-            "scty": 80
+            "prop": 90,
+            "cult": 80
         }
     },
     {
         "name": "De Leonism",
         "stats": {
             "idty": 70,
-            "prop": 95,
-            "scty": 80
+            "prop": 90,
+            "cult": 80
         }
     },
     {
         "name": "Leninism",
         "stats": {
             "idty": 60,
-            "prop": 95,
-            "scty": 70
+            "prop": 90,
+            "cult": 70
         }
     },
     {
@@ -60,7 +60,7 @@ ideologies = [
         "stats": {
             "idty": 70,
             "prop": 90,
-            "scty": 70
+            "cult": 70
         }
     },
     {
@@ -68,7 +68,7 @@ ideologies = [
         "stats": {
             "idty": 50,
             "prop": 90,
-            "scty": 80
+            "cult": 80
         }
     },
     {
@@ -76,7 +76,7 @@ ideologies = [
         "stats": {
             "idty": 80,
             "prop": 90,
-            "scty": 90
+            "cult": 90
         }
     },
     {
@@ -84,7 +84,7 @@ ideologies = [
         "stats": {
             "idty": 20,
             "prop": 80,
-            "scty": 20
+            "cult": 20
         }
     },
     {
@@ -92,7 +92,7 @@ ideologies = [
         "stats": {
             "idty": 50,
             "prop": 75,
-            "scty": 20
+            "cult": 20
         }
     },
     {
@@ -100,7 +100,7 @@ ideologies = [
         "stats": {
             "idty": 50,
             "prop": 75,
-            "scty": 65
+            "cult": 65
         }
     },
     {
@@ -108,7 +108,7 @@ ideologies = [
         "stats": {
             "idty": 50,
             "prop": 25,
-            "scty": 35
+            "cult": 35
         }
     },
     {
@@ -116,7 +116,7 @@ ideologies = [
         "stats": {
             "idty": 50,
             "prop": 75,
-            "scty": 80
+            "cult": 80
         }
     },
     {
@@ -124,7 +124,7 @@ ideologies = [
         "stats": {
             "idty": 80,
             "prop": 65,
-            "scty": 80
+            "cult": 80
         }
     },
     {
@@ -132,15 +132,15 @@ ideologies = [
         "stats": {
             "idty": 50,
             "prop": 60,
-            "scty": 30
+            "cult": 30
         }
     },
     {
         "name": "Technocracy",
         "stats": {
-            "idty": 95,
+            "idty": 90,
             "prop": 55,
-            "scty": 95
+            "cult": 90
         }
     },
     {
@@ -148,7 +148,7 @@ ideologies = [
         "stats": {
             "idty": 80,
             "prop": 25,
-            "scty": 50
+            "cult": 50
         }
     },
     {
@@ -156,7 +156,7 @@ ideologies = [
         "stats": {
             "idty": 50,
             "prop": 50,
-            "scty": 50
+            "cult": 50
         }
     },
     {
@@ -164,7 +164,7 @@ ideologies = [
         "stats": {
             "idty": 60,
             "prop": 50,
-            "scty": 60
+            "cult": 60
         }
     },
     {
@@ -172,7 +172,7 @@ ideologies = [
         "stats": {
             "idty": 50,
             "prop": 45,
-            "scty": 40
+            "cult": 40
         }
     },
     {
@@ -180,7 +180,7 @@ ideologies = [
         "stats": {
             "idty": 70,
             "prop": 35,
-            "scty": 70
+            "cult": 70
         }
     },
     {
@@ -188,15 +188,15 @@ ideologies = [
         "stats": {
             "idty": 50,
             "prop": 25,
-            "scty": 50
+            "cult": 50
         }
     },
     {
         "name": "Anarcho-Egoism",
         "stats": {
-            "idty": 95,
+            "idty": 90,
             "prop": 0,
-            "scty": 95
+            "cult": 90
         }
     },
     {
@@ -204,7 +204,7 @@ ideologies = [
         "stats": {
             "idty": 25,
             "prop": 50,
-            "scty": 25
+            "cult": 25
         }
     },
     {
@@ -212,7 +212,7 @@ ideologies = [
         "stats": {
             "idty": 25,
             "prop": 25,
-            "scty": 15
+            "cult": 15
         }
     },
     {
@@ -220,7 +220,7 @@ ideologies = [
         "stats": {
             "idty": 50,
             "prop": 40,
-            "scty": 50
+            "cult": 50
         }
     },
     {
@@ -228,7 +228,7 @@ ideologies = [
         "stats": {
             "idty": 70,
             "prop": 60,
-            "scty": 60
+            "cult": 60
         }
     },
     {
@@ -236,7 +236,7 @@ ideologies = [
         "stats": {
             "idty": 30,
             "prop": 15,
-            "scty": 25
+            "cult": 25
         }
     },
     {
@@ -244,7 +244,7 @@ ideologies = [
         "stats": {
             "idty": 55,
             "prop": 50,
-            "scty": 55
+            "cult": 55
         }
     },
     {
@@ -252,7 +252,7 @@ ideologies = [
         "stats": {
             "idty": 30,
             "prop": 20,
-            "scty": 30
+            "cult": 30
         }
     },
     {
@@ -260,7 +260,7 @@ ideologies = [
         "stats": {
             "idty": 40,
             "prop": 15,
-            "scty": 20
+            "cult": 20
         }
     },
     {
@@ -268,7 +268,7 @@ ideologies = [
         "stats": {
             "idty": 15,
             "prop": 0,
-            "scty": 15
+            "cult": 15
         }
     }
 ];

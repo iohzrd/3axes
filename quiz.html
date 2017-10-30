@@ -24,17 +24,17 @@
 
 <!-- JavaScript for the test itself -->
 <script>
-    var max_idty, max_prop, max_scty; // Max possible scores
-    max_idty = max_prop = max_scty = 0;
-    var idty, prop, scty; // User's scores
-    idty = prop = scty = 0;
+    var max_idty, max_prop, max_cult; // Max possible scores
+    max_idty = max_prop = max_cult = 0;
+    var idty, prop, cult; // User's scores
+    idty = prop = cult = 0;
     var qn = 0; // Question number
     var prev_answer = null;
     init_question();
     for (var i = 0; i < questions.length; i++) {
         max_idty += Math.abs(questions[i].effect.idty)
         max_prop += Math.abs(questions[i].effect.prop)
-        max_scty += Math.abs(questions[i].effect.scty)
+        max_cult += Math.abs(questions[i].effect.cult)
     }
     function init_question() {
         document.getElementById("question-text").innerHTML = questions[qn].question;
@@ -52,12 +52,12 @@
     function next_question(mult) {
         idty += mult*questions[qn].effect.idty
         prop += mult*questions[qn].effect.prop
-        scty += mult*questions[qn].effect.scty
+        cult += mult*questions[qn].effect.cult
         qn++;
         prev_answer = mult;
         console.log(idty);
         console.log(prop);
-        console.log(scty);
+        console.log(cult);
         if (qn < questions.length) {
             init_question();
         } else {
@@ -71,7 +71,7 @@
         qn--;
         idty -= prev_answer * questions[qn].effect.idty;
         prop -= prev_answer * questions[qn].effect.prop;
-        scty -= prev_answer * questions[qn].effect.scty;
+        cult -= prev_answer * questions[qn].effect.cult;
         prev_answer = null;
         init_question();
 
@@ -83,7 +83,7 @@
         location.href = `results.html`
             + `?i=${calc_score(idty,max_idty)}`
             + `&p=${calc_score(prop,max_prop)}`
-            + `&s=${calc_score(scty,max_scty)}`
+            + `&c=${calc_score(cult,max_cult)}`
     }
 </script>
 </body>

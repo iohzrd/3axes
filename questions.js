@@ -4,7 +4,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10000,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -12,7 +12,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -20,7 +20,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": 0,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -28,7 +28,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -36,7 +36,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": -10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -44,7 +44,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": -10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -52,7 +52,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -60,7 +60,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": -10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -68,7 +68,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": -5
+            "cult": -5
         }
     },
     {
@@ -76,7 +76,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": -10,
-            "scty": 5
+            "cult": 5
         }
     },
     {
@@ -84,7 +84,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -92,7 +92,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": -10,
-            "scty": 5
+            "cult": 5
         }
     },
     {
@@ -100,7 +100,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -108,7 +108,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": -10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -116,7 +116,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": -10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -124,7 +124,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -132,7 +132,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -140,7 +140,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": 0,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -148,7 +148,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 0,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -156,7 +156,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": -5,
-            "scty": -5
+            "cult": -5
         }
     },
     {
@@ -164,7 +164,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": 0,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -172,7 +172,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 0,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -180,7 +180,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 0,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -188,7 +188,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": 0,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -196,7 +196,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 0,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -204,7 +204,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": -5,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -212,7 +212,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": 0,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -220,7 +220,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 0,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -228,7 +228,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 0,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -236,7 +236,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 0,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -244,7 +244,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 0,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -252,7 +252,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 0,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -260,7 +260,7 @@ questions = [
         "effect": {
             "idty": -5,
             "prop": 0,
-            "scty": -5
+            "cult": -5
         }
     },
     {
@@ -268,7 +268,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -276,7 +276,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": -10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -284,7 +284,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 10,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -292,7 +292,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -300,7 +300,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": -10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -308,7 +308,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": 0,
-            "scty": -5
+            "cult": -5
         }
     },
     {
@@ -316,7 +316,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": -10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -324,7 +324,7 @@ questions = [
         "effect": {
             "idty": -5,
             "prop": 10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -332,7 +332,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 10,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -340,7 +340,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": 0,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -348,7 +348,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 10,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -356,7 +356,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -364,7 +364,7 @@ questions = [
         "effect": {
             "idty": -5,
             "prop": -10,
-            "scty": 5
+            "cult": 5
         }
     },
     {
@@ -372,7 +372,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 0,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -380,7 +380,7 @@ questions = [
         "effect": {
             "idty": 5,
             "prop": 0,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -388,7 +388,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -396,7 +396,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -404,7 +404,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 10,
-            "scty": 0
+            "cult": 0
         }
     },
     {
@@ -412,7 +412,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 10,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -420,7 +420,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": -10,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -428,7 +428,7 @@ questions = [
         "effect": {
             "idty": -5,
             "prop": 0,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -436,7 +436,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 0,
-            "scty": -5
+            "cult": -5
         }
     },
     {
@@ -444,7 +444,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 0,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -452,7 +452,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": -10,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -460,7 +460,7 @@ questions = [
         "effect": {
             "idty": -5,
             "prop": 5,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -468,7 +468,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 0,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -476,7 +476,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 0,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -484,7 +484,7 @@ questions = [
         "effect": {
             "idty": -5,
             "prop": 0,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -492,7 +492,7 @@ questions = [
         "effect": {
             "idty": -5,
             "prop": 5,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -500,7 +500,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 10,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -508,7 +508,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 10,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -516,7 +516,7 @@ questions = [
         "effect": {
             "idty": 5,
             "prop": 5,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -524,7 +524,7 @@ questions = [
         "effect": {
             "idty": -10,
             "prop": -10,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -532,7 +532,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 0,
-            "scty": -5
+            "cult": -5
         }
     },
     {
@@ -540,7 +540,7 @@ questions = [
         "effect": {
             "idty": 0,
             "prop": 0,
-            "scty": -10
+            "cult": -10
         }
     },
     {
@@ -548,7 +548,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 10,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -556,7 +556,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 10,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -564,7 +564,7 @@ questions = [
         "effect": {
             "idty": 10,
             "prop": 10,
-            "scty": 10
+            "cult": 10
         }
     },
     {
@@ -572,7 +572,7 @@ questions = [
         "effect": {
             "idty": -5,
             "prop": 0,
-            "scty": 0
+            "cult": 0
         }
     }
 ];

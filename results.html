@@ -32,7 +32,7 @@
     <img id="img-privatism" src="value_images/privatism.png" height="128pt"/>
 </div>
 
-<h2>Culture: <span class="weight-300" id="society-label"></span></h2>
+<h2>Culture: <span class="weight-300" id="culture-label"></span></h2>
 <div class="axis">
     <img id="img-diversity" src="value_images/diversity.png" height="128pt"/>
     <div class="bar diversity" id="bar-diversity"><div class="text-wrapper" id="diversity"></div></div>
@@ -71,8 +71,8 @@
     }
 
     idtyArray = ["Globalist", "Cosmopolitan", "Civic Nationalist", "Ethno-Nationalist", "Covenant Communitarian"]
-    propArray = ["Communist", "Socialist", "Centrist", "Minarchist", "Anarchist"]
-    sctyArray = ["Revolutionary", "Progressive", "Neutral", "Traditional", "Reactionary"]
+    propArray = ["Communist", "Socialist", "Statist", "Minarchist", "Anarchist"]
+    cultArray = ["Revolutionary", "Progressive", "Neutral", "Traditional", "Reactionary"]
 
     function setLabel(val,ary) {
         if (val > 100) { return "" } else
@@ -85,22 +85,24 @@
     }
 
     globalism     = getQueryVariable("i")
-    collectivism   = getQueryVariable("p")
-    diversity  = getQueryVariable("s")
-    individualism     = (100 - globalism   ).toFixed(1)
-    privatism = (100 - collectivism ).toFixed(1)
-    cohesion = (100 - diversity).toFixed(1)
+    collectivism  = getQueryVariable("p")
+    diversity     = getQueryVariable("c")
+    individualism = (100 - globalism).toFixed(1)
+    privatism     = (100 - collectivism).toFixed(1)
+    cohesion      = (100 - diversity).toFixed(1)
 
     setBarValue("globalism", globalism)
     setBarValue("individualism", individualism)
+
     setBarValue("collectivism", collectivism)
     setBarValue("privatism", privatism)
+    
     setBarValue("diversity", diversity)
     setBarValue("cohesion", cohesion)
 
     document.getElementById("identity-label").innerHTML = setLabel(globalism, idtyArray)
     document.getElementById("property-label").innerHTML = setLabel(collectivism, propArray)
-    document.getElementById("society-label").innerHTML = setLabel(diversity, sctyArray)
+    document.getElementById("culture-label").innerHTML = setLabel(diversity, cultArray)
 
     ideology = ""
     ideodist = Infinity
@@ -108,7 +110,7 @@
         dist = 0
         dist += Math.pow(Math.abs(ideologies[i].stats.idty - globalism), 2)
         dist += Math.pow(Math.abs(ideologies[i].stats.prop - collectivism), 2)
-        dist += Math.pow(Math.abs(ideologies[i].stats.scty - diversity), 2)
+        dist += Math.pow(Math.abs(ideologies[i].stats.cult - diversity), 2)
         if (dist < ideodist) {
             ideology = ideologies[i].name
             ideodist = dist
@@ -131,59 +133,58 @@
         ctx.fillRect(0,0,800,600)
 
         img = document.getElementById("img-globalism")
-        ctx.drawImage(img, 680, 240, 100, 100)
+        ctx.drawImage(img, 20, 120, 100, 100);
         img = document.getElementById("img-individualism")
-        ctx.drawImage(img, 20, 240, 100, 100)
+        ctx.drawImage(img, 680, 120, 100, 100)
         img = document.getElementById("img-collectivism")
-        ctx.drawImage(img, 20, 360, 100, 100)
+        ctx.drawImage(img, 20, 240, 100, 100)
         img = document.getElementById("img-privatism")
-        ctx.drawImage(img, 680, 360, 100, 100)
+        ctx.drawImage(img, 680, 240, 100, 100)
         img = document.getElementById("img-diversity")
-        ctx.drawImage(img, 680, 480, 100, 100)
+        ctx.drawImage(img, 20, 360, 100, 100)
         img = document.getElementById("img-cohesion")
-        ctx.drawImage(img, 20, 480, 100, 100)
+        ctx.drawImage(img, 680, 360, 100, 100)
 
         ctx.fillStyle="#222222"
         ctx.fillRect(120, 130, 560, 80)
         ctx.fillRect(120, 250, 560, 80)
         ctx.fillRect(120, 370, 560, 80)
-        ctx.fillRect(120, 490, 560, 80)
+        ctx.fillStyle="#f44336"
+        ctx.fillRect(120, 134, 5.6*individualism-2, 72)
+        ctx.fillStyle="#00897b"
+        ctx.fillRect(682-5.6*globalism, 134, 5.6*globalism-2, 72)
         ctx.fillStyle="#ff9800"
-        ctx.fillRect(120, 254, 5.6*individualism-2, 72)
+        ctx.fillRect(120, 254, 5.6*collectivism-2, 72)
         ctx.fillStyle="#03a9f4"
-        ctx.fillRect(682-5.6*globalism, 254, 5.6*globalism-2, 72)
+        ctx.fillRect(682-5.6*privatism, 254, 5.6*privatism-2, 72)
         ctx.fillStyle="#ffeb3b"
-        ctx.fillRect(120, 374, 5.6*collectivism-2, 72)
+        ctx.fillRect(120, 374, 5.6*cohesion-2, 72)
         ctx.fillStyle="#3f51b5"
-        ctx.fillRect(682-5.6*privatism, 374, 5.6*privatism-2, 72)
-        ctx.fillStyle="#8bc34a"
-        ctx.fillRect(120, 494, 5.6*cohesion-2, 72)
-        ctx.fillStyle="#9c27b0"
-        ctx.fillRect(682-5.6*diversity, 494, 5.6*diversity-2, 72)
+        ctx.fillRect(682-5.6*diversity, 374, 5.6*diversity-2, 72)
         ctx.fillStyle="#222222"
         ctx.font="700 80px Montserrat"
         ctx.textAlign="left"
-        ctx.fillText("3dimensions", 20, 90)
+        ctx.fillText("3d", 20, 90)
         ctx.font="40px Montserrat"
         ctx.textAlign="right"
         ctx.fillText(ideology, 780, 87.5)
 
         ctx.font="50px Montserrat"
         ctx.textAlign="left"
-        if (globalism     > 30) {ctx.fillText(globalism + "%", 670, 307.5)}
-        if (privatism > 30) {ctx.fillText(privatism + "%", 670, 427.5)}
-        if (diversity  > 30) {ctx.fillText(diversity + "%", 670, 547.5)}
+        if (globalism     > 30) {ctx.fillText(globalism + "%", 130, 187.5)}
+        if (privatism > 30) {ctx.fillText(privatism + "%", 130, 307.5)}
+        if (diversity  > 30) {ctx.fillText(diversity + "%", 130, 427.5)}
         ctx.textAlign="right"
-        if (individualism     > 30) {ctx.fillText(individualism + "%", 130, 307.5)}
-        if (collectivism   > 30) {ctx.fillText(collectivism + "%", 130, 427.5)}
-        if (cohesion > 30) {ctx.fillText(cohesion + "%", 130, 547.5)}
+        if (individualism     > 30) {ctx.fillText(individualism + "%", 670, 187.5)}
+        if (collectivism   > 30) {ctx.fillText(collectivism + "%", 670, 307.5)}
+        if (cohesion > 30) {ctx.fillText(cohesion + "%", 670, 427.5)}
 
         ctx.font="300 30px Montserrat"
         ctx.fillText("3dimensions.github.io", 780, 55)
         ctx.textAlign="center"
-        ctx.fillText("Identity Axis: " + document.getElementById("identity-label").innerHTML, 400, 245)
-        ctx.fillText("Property Axis: " + document.getElementById("property-label").innerHTML, 400, 365)
-        ctx.fillText("Societal Axis: " + document.getElementById("society-label").innerHTML, 400, 485)
+        ctx.fillText("Identity Axis: " + document.getElementById("identity-label").innerHTML, 400, 125)
+        ctx.fillText("Property Axis: " + document.getElementById("property-label").innerHTML, 400, 245)
+        ctx.fillText("Societal Axis: " + document.getElementById("culture-label").innerHTML, 400, 365)
     }
     </script>
 </body>
