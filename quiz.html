@@ -1,7 +1,7 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
 <link href='style.css' rel='stylesheet' type='text/css'>
-<title>3dimensions Quiz</title>
+<title>3axes Quiz</title>
 <link rel="icon" type="x-icon" href="icon.png">
 <link rel="shortcut icon" type="x-icon" href="icon.png">
 <meta charset="utf-8">
@@ -22,68 +22,8 @@
 <button class="small_button" onclick="prev_question()" id="back_button">Back</button>
 <button class="small_button_off" id="back_button_off">Back</button><br>
 
-<!-- JavaScript for the test itself -->
-<script>
-    var max_idty, max_prop, max_cult; // Max possible scores
-    max_idty = max_prop = max_cult = 0;
-    var idty, prop, cult; // User's scores
-    idty = prop = cult = 0;
-    var qn = 0; // Question number
-    var prev_answer = null;
-    init_question();
-    for (var i = 0; i < questions.length; i++) {
-        max_idty += Math.abs(questions[i].effect.idty)
-        max_prop += Math.abs(questions[i].effect.prop)
-        max_cult += Math.abs(questions[i].effect.cult)
-    }
-    function init_question() {
-        document.getElementById("question-text").innerHTML = questions[qn].question;
-        document.getElementById("question-number").innerHTML = "Question " + (qn + 1) + " of " + (questions.length);
-        if (prev_answer == null) {
-            document.getElementById("back_button").style.display = 'none';
-            document.getElementById("back_button_off").style.display = 'block';
-        } else {
-            document.getElementById("back_button").style.display = 'block';
-            document.getElementById("back_button_off").style.display = 'none';
-        }
-
-    }
-
-    function next_question(mult) {
-        idty += mult*questions[qn].effect.idty
-        prop += mult*questions[qn].effect.prop
-        cult += mult*questions[qn].effect.cult
-        qn++;
-        prev_answer = mult;
-        console.log(idty);
-        console.log(prop);
-        console.log(cult);
-        if (qn < questions.length) {
-            init_question();
-        } else {
-            results();
-        }
-    }
-    function prev_question() {
-        if (prev_answer == null) {
-            return;
-        }
-        qn--;
-        idty -= prev_answer * questions[qn].effect.idty;
-        prop -= prev_answer * questions[qn].effect.prop;
-        cult -= prev_answer * questions[qn].effect.cult;
-        prev_answer = null;
-        init_question();
-
-    }
-    function calc_score(score,max) {
-        return (100*(max+score)/(2*max)).toFixed(1)
-    }
-    function results() {
-        location.href = `results.html`
-            + `?i=${calc_score(idty,max_idty)}`
-            + `&p=${calc_score(prop,max_prop)}`
-            + `&c=${calc_score(cult,max_cult)}`
-    }
+<!-- This is the script for the page itself -->
+<script type="application/javascript"
+        src="quiz.js">
 </script>
 </body>

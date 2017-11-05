@@ -1,0 +1,24 @@
+{
+  "name": "3axes.github.io",
+  "version": "1.0.0",
+  "description": "The 8values Political Quiz measures individuals' political values, including Equality, Might, Liberty, Tradition, Wealth, Peace, Authority, and Progress.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RiskyMcdanger/3axes.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RiskyMcdanger/3axes.github.io/issues"
+  },
+  "homepage": "https://github.com/RiskyMcdanger/3axes.github.io#readme",
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
