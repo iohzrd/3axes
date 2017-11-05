@@ -56,14 +56,6 @@ const ideologies = [
     },
   },
   {
-    name: 'State Socialism',
-    stats: {
-      idty: 70,
-      prop: 90,
-      cult: 70,
-    },
-  },
-  {
     name: 'Democratic Socialism',
     stats: {
       idty: 50,
