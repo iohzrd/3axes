@@ -1,250 +1,33 @@
 const ideologies = [
-  {
-    name: 'Communism',
-    stats: {
-      idty: 90,
-      prop: 90,
-      cult: 90,
-    },
-  },
-  {
-    name: 'National Bolshevism',
-    stats: {
-      idty: 15,
-      prop: 90,
-      cult: 20,
-    },
-  },
-  {
-    name: 'Stalinism/Maoism',
-    stats: {
-      idty: 30,
-      prop: 90,
-      cult: 50,
-    },
-  },
-  {
-    name: 'Trotskyism',
-    stats: {
-      idty: 90,
-      prop: 90,
-      cult: 80,
-    },
-  },
-  {
-    name: 'Marxism',
-    stats: {
-      idty: 70,
-      prop: 90,
-      cult: 80,
-    },
-  },
-  {
-    name: 'De Leonism',
-    stats: {
-      idty: 70,
-      prop: 90,
-      cult: 80,
-    },
-  },
-  {
-    name: 'Leninism',
-    stats: {
-      idty: 60,
-      prop: 90,
-      cult: 70,
-    },
-  },
-  {
-    name: 'Democratic Socialism',
-    stats: {
-      idty: 50,
-      prop: 90,
-      cult: 80,
-    },
-  },
-  {
-    name: 'Revolutionary Socialism',
-    stats: {
-      idty: 80,
-      prop: 90,
-      cult: 90,
-    },
-  },
-  {
-    name: 'Anarcho-Syndicalism',
-    stats: {
-      idty: 50,
-      prop: 75,
-      cult: 20,
-    },
-  },
-  {
-    name: 'Left-Wing Populism',
-    stats: {
-      idty: 50,
-      prop: 75,
-      cult: 65,
-    },
-  },
-  {
-    name: 'Distributism',
-    stats: {
-      idty: 50,
-      prop: 75,
-      cult: 25,
-    },
-  },
-  {
-    name: 'Progressivism',
-    stats: {
-      idty: 80,
-      prop: 65,
-      cult: 80,
-    },
-  },
-  {
-    name: 'Mutualism',
-    stats: {
-      idty: 50,
-      prop: 60,
-      cult: 50,
-    },
-  },
-  {
-    name: 'Neo-Liberalism',
-    stats: {
-      idty: 70,
-      prop: 60,
-      cult: 60,
-    },
-  },
-  {
-    name: 'Technocracy',
-    stats: {
-      idty: 90,
-      prop: 55,
-      cult: 90,
-    },
-  },
-  {
-    name: 'Radical Centrist',
-    stats: {
-      idty: 50,
-      prop: 50,
-      cult: 50,
-    },
-  },
-  {
-    name: 'Liberalism',
-    stats: {
-      idty: 60,
-      prop: 50,
-      cult: 60,
-    },
-  },
-  {
-    name: 'National Socialism',
-    stats: {
-      idty: 25,
-      prop: 50,
-      cult: 25,
-    },
-  },
-  {
-    name: 'Exclusive Democracy',
-    stats: {
-      idty: 25,
-      prop: 35,
-      cult: 45,
-    },
-  },
-  {
-    name: 'Neo-Conservatism',
-    stats: {
-      idty: 55,
-      prop: 50,
-      cult: 55,
-    },
-  },
-  {
-    name: 'Moderate Conservatism',
-    stats: {
-      idty: 50,
-      prop: 45,
-      cult: 40,
-    },
-  },
-  {
-    name: 'Conservatism',
-    stats: {
-      idty: 50,
-      prop: 40,
-      cult: 50,
-    },
-  },
-  {
-    name: 'Capitalist Fascism',
-    stats: {
-      idty: 25,
-      prop: 25,
-      cult: 15,
-    },
-  },
-  {
-    name: 'Right-Wing Populism',
-    stats: {
-      idty: 50,
-      prop: 25,
-      cult: 35,
-    },
-  },
-  {
-    name: 'Corporatocracy',
-    stats: {
-      idty: 80,
-      prop: 25,
-      cult: 50,
-    },
-  },
-  {
-    name: 'Libertarianism',
-    stats: {
-      idty: 50,
-      prop: 25,
-      cult: 50,
-    },
-  },
-  {
-    name: 'National Capitalism',
-    stats: {
-      idty: 30,
-      prop: 20,
-      cult: 30,
-    },
-  },
-  {
-    name: 'Classical Liberalism',
-    stats: {
-      idty: 30,
-      prop: 15,
-      cult: 25,
-    },
-  },
-  {
-    name: 'Anarcho-Egoism',
-    stats: {
-      idty: 90,
-      prop: 0,
-      cult: 90,
-    },
-  },
-  {
-    name: 'Anarcho-Capitalism',
-    stats: {
-      idty: 15,
-      prop: 0,
-      cult: 15,
-    },
-  },
+  { name: 'Anarcho-Capitalism', stats: { cult: 15, idty: 15, prop: 0 } },
+  { name: 'Anarcho-Egoism', stats: { cult: 90, idty: 90, prop: 0 } },
+  { name: 'Anarcho-Syndicalism', stats: { cult: 20, idty: 50, prop: 75 } },
+  { name: 'Capitalist Fascism', stats: { cult: 15, idty: 25, prop: 25 } },
+  { name: 'Classical Liberalism', stats: { cult: 25, idty: 30, prop: 15 } },
+  { name: 'Communism', stats: { cult: 90, idty: 90, prop: 90 } },
+  { name: 'Conservatism', stats: { cult: 50, idty: 50, prop: 40 } },
+  { name: 'Corporatocracy', stats: { cult: 50, idty: 80, prop: 25 } },
+  { name: 'De Leonism', stats: { cult: 80, idty: 70, prop: 90 } },
+  { name: 'Democratic Socialism', stats: { cult: 80, idty: 50, prop: 90 } },
+  { name: 'Distributism', stats: { cult: 25, idty: 50, prop: 75 } },
+  { name: 'Exclusive Democracy', stats: { cult: 45, idty: 25, prop: 35 } },
+  { name: 'Left-Wing Populism', stats: { cult: 65, idty: 50, prop: 75 } },
+  { name: 'Leninism', stats: { cult: 70, idty: 60, prop: 90 } },
+  { name: 'Liberalism', stats: { cult: 60, idty: 60, prop: 50 } },
+  { name: 'Libertarianism', stats: { cult: 50, idty: 50, prop: 25 } },
+  { name: 'Marxism', stats: { cult: 80, idty: 70, prop: 90 } },
+  { name: 'Moderate Conservatism', stats: { cult: 40, idty: 50, prop: 45 } },
+  { name: 'Mutualism', stats: { cult: 50, idty: 50, prop: 60 } },
+  { name: 'National Bolshevism', stats: { cult: 20, idty: 15, prop: 90 } },
+  { name: 'National Capitalism', stats: { cult: 30, idty: 30, prop: 10 } },
+  { name: 'National Socialism', stats: { cult: 25, idty: 25, prop: 50 } },
+  { name: 'Neo-Conservatism', stats: { cult: 55, idty: 55, prop: 50 } },
+  { name: 'Neo-Liberalism', stats: { cult: 60, idty: 70, prop: 60 } },
+  { name: 'Progressivism', stats: { cult: 80, idty: 80, prop: 65 } },
+  { name: 'Radical Centrist', stats: { cult: 50, idty: 50, prop: 50 } },
+  { name: 'Revolutionary Socialism', stats: { cult: 90, idty: 80, prop: 90 } },
+  { name: 'Right-Wing Populism', stats: { cult: 35, idty: 50, prop: 25 } },
+  { name: 'Stalinism/Maoism', stats: { cult: 50, idty: 30, prop: 90 } },
+  { name: 'Technocracy', stats: { cult: 90, idty: 90, prop: 55 } },
+  { name: 'Trotskyism', stats: { cult: 80, idty: 90, prop: 90 } },
 ];

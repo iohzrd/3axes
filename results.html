@@ -1,14 +1,15 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
 <link href='style.css' rel='stylesheet' type='text/css'>
+
 <title>3axes Results</title>
 <link rel="icon" type="x-icon" href="icon.png">
 <link rel="shortcut icon" type="x-icon" href="icon.png">
 <meta charset="utf-8">
 </head>
-<script type="application/javascript"
-        src="ideologies.js">
-</script>
+<script type="application/javascript" src="ideologies.js"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+
 
 <body>
 <h1>3axes</h1>
@@ -42,11 +43,14 @@
 
 <h2>Closest Match: <span class="weight-300" id="ideology-label"></span></h2>
 
+<br>
+<div id="visualization"></div>
+<br>
+
 <canvas id="banner" width=800 height=600 style="font-family:Montserrat"></canvas>
 <button class="button" onclick="location.href='index.html';" style="background-color: #2196f3;">Back</button> <br>
 
 <!-- This is the script for the page itself -->
-<script type="application/javascript"
-        src="results.js">
-</script>
+<script type="application/javascript" src="results.js"></script>
+<script type="application/javascript" src="visualization.js"></script>
 </body>

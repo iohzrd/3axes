@@ -1,8 +1,7 @@
-const w = window;
-const doc = w.document;
+
 
 function getQueryVariable(variable) {
-  const query = w.location.search.substring(1);
+  const query = window.location.search.substring(1);
   const vars = query.split('&');
   for (let i = 0; i < vars.length; i++) {
     const pair = vars[i].split('=');
@@ -12,8 +11,8 @@ function getQueryVariable(variable) {
 }
 
 function setBarValue(name, value) {
-  const innerel = doc.getElementById(name);
-  const outerel = doc.getElementById(`bar-${name}`);
+  const innerel = document.getElementById(name);
+  const outerel = document.getElementById(`bar-${name}`);
   outerel.style.width = (`${value}%`);
   innerel.innerHTML = (`${value}%`);
   if (innerel.offsetWidth + 20 > outerel.offsetWidth) {
@@ -50,9 +49,9 @@ setBarValue('privatism', privatism);
 setBarValue('diversity', diversity);
 setBarValue('cohesion', cohesion);
 
-doc.getElementById('in-group-label').innerHTML = setLabel(globalism, idtyArray);
-doc.getElementById('property-label').innerHTML = setLabel(collectivism, propArray);
-doc.getElementById('culture-label').innerHTML = setLabel(diversity, cultArray);
+document.getElementById('in-group-label').innerHTML = setLabel(globalism, idtyArray);
+document.getElementById('property-label').innerHTML = setLabel(collectivism, propArray);
+document.getElementById('culture-label').innerHTML = setLabel(diversity, cultArray);
 
 let ideology = '';
 let ideodist = Infinity;
@@ -66,25 +65,25 @@ for (let i = 0; i < ideologies.length; i++) {
     ideodist = dist;
   }
 }
-doc.getElementById('ideology-label').innerHTML = ideology;
+document.getElementById('ideology-label').innerHTML = ideology;
 
-w.onload = function () {
-  const c = doc.getElementById('banner');
+window.onload = function () {
+  const c = document.getElementById('banner');
   const ctx = c.getContext('2d');
   ctx.fillStyle = '#EEEEEE';
   ctx.fillRect(0, 0, 800, 600);
 
-  let img = doc.getElementById('img-globalism');
+  let img = document.getElementById('img-globalism');
   ctx.drawImage(img, 20, 120, 100, 100);
-  img = doc.getElementById('img-tribalism');
+  img = document.getElementById('img-tribalism');
   ctx.drawImage(img, 680, 120, 100, 100);
-  img = doc.getElementById('img-collectivism');
+  img = document.getElementById('img-collectivism');
   ctx.drawImage(img, 20, 240, 100, 100);
-  img = doc.getElementById('img-privatism');
+  img = document.getElementById('img-privatism');
   ctx.drawImage(img, 680, 240, 100, 100);
-  img = doc.getElementById('img-diversity');
+  img = document.getElementById('img-diversity');
   ctx.drawImage(img, 20, 360, 100, 100);
-  img = doc.getElementById('img-cohesion');
+  img = document.getElementById('img-cohesion');
   ctx.drawImage(img, 680, 360, 100, 100);
 
   ctx.fillStyle = '#222222';
@@ -124,7 +123,7 @@ w.onload = function () {
   ctx.font = '300 30px Montserrat';
   ctx.fillText('3axes.github.io', 780, 55);
   ctx.textAlign = 'center';
-  ctx.fillText(`In-group Axis: ${doc.getElementById('in-group-label').innerHTML}`, 400, 125);
-  ctx.fillText(`Property Axis: ${doc.getElementById('property-label').innerHTML}`, 400, 245);
-  ctx.fillText(`Cultural Axis: ${doc.getElementById('culture-label').innerHTML}`, 400, 365);
+  ctx.fillText(`In-group Axis: ${document.getElementById('in-group-label').innerHTML}`, 400, 125);
+  ctx.fillText(`Property Axis: ${document.getElementById('property-label').innerHTML}`, 400, 245);
+  ctx.fillText(`Cultural Axis: ${document.getElementById('culture-label').innerHTML}`, 400, 365);
 };

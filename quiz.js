@@ -16,7 +16,7 @@ for (let i = 0; i < questions.length; i++) {
 }
 
 function calcScore(score, max) {
-  return ((100 * (max + score)) / (2 * max)).toFixed(1);
+  return Math.round(((100 * (max + score)) / (2 * max)).toFixed(1));
 }
 
 function results() {
