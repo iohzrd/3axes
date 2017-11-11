@@ -1,5 +1,5 @@
 {
-  "name": "3axes.github.io",
+  "name": "3axes",
   "version": "1.0.0",
   "description": "The 3axes Political Quiz.",
   "main": "app.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RiskyMcdanger/3axes.github.io.git"
+    "url": "git+https://github.com/RiskyMcdanger/3axes.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RiskyMcdanger/3axes.github.io/issues"
+    "url": "https://github.com/RiskyMcdanger/3axes/issues"
   },
-  "homepage": "https://github.com/RiskyMcdanger/3axes.github.io#readme",
+  "homepage": "https://github.com/RiskyMcdanger/3axes#readme",
   "devDependencies": {
     "eslint": "^4.10.0",
     "eslint-config-airbnb-base": "^12.1.0",
