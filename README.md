@@ -1,2 +1,2 @@
-# 8values.github.io
-The 8values Political Quiz measures individuals' political values, including Equality, Might, Liberty, Tradition, Wealth, Peace, Authority, and Progress.
+# 3axes
+The 3axes Political Quiz measures individuals' political values, including property rights, in-group exclusivity and cultural homogeneity.
