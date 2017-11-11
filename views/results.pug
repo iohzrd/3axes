@@ -1,0 +1,66 @@
+html
+    head
+        title 3axes
+        link(rel="stylesheet", href="static/css/style.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700")
+        script(src="static/js/ideologies.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js")
+
+<body>
+    <h1>3axes</h1>
+    <hr>
+
+    <h1>Results</h1>
+
+    <div id="visualization"></div>
+
+    <h2>Closest Match: <span class="weight-300" id="ideology-label"></span></h2>
+
+    <h2>In-group: <span class="weight-300" id="in-group-label"></span></h2>
+    <div class="axis">
+        img(id="img-globalism", src="static/images/globalism.png", height="128pt")
+        <div class="bar globalism" id="bar-globalism">
+            <div class="text-wrapper" id="globalism">
+            </div>
+        </div>
+        <div class="bar tribalism" id="bar-tribalism">
+            <div class="text-wrapper" id="tribalism">
+            </div>
+        </div>
+        img(id="img-tribalism", src="static/images/tribalism.png", height="128pt")
+    </div>
+
+    <h2>Property: <span class="weight-300" id="property-label"></span></h2>
+    <div class="axis">
+        img(id="img-collectivism", src="static/images/collectivism.png", height="128pt")
+        <div class="bar collectivism" id="bar-collectivism">
+            <div class="text-wrapper" id="collectivism">
+            </div>
+        </div>
+        <div class="bar privatism" id="bar-privatism">
+            <div class="text-wrapper" id="privatism">
+            </div>
+        </div>
+        img(id="img-privatism", src="static/images/privatism.png", height="128pt")
+    </div>
+
+    <h2>Culture: <span class="weight-300" id="culture-label"></span></h2>
+    <div class="axis">
+        img(id="img-diversity", src="static/images/diversity.png", height="128pt")
+        <div class="bar diversity" id="bar-diversity">
+            <div class="text-wrapper" id="diversity">
+            </div>
+        </div>
+        <div class="bar cohesion" id="bar-cohesion">
+            <div class="text-wrapper" id="cohesion">
+            </div>
+        </div>
+        img(id="img-cohesion", src="static/images/cohesion.png", height="128pt")
+    </div>
+
+    <br>
+    <button class="button" onclick="location.href='/';" style="background-color: #2196f3;">Back</button> <br>
+
+    script(src="static/js/results.js")
+    script(src="static/js/visualization.js")
+</body>

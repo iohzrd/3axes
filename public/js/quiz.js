@@ -15,15 +15,46 @@ for (let i = 0; i < questions.length; i++) {
   maxCulture += Math.abs(questions[i].effect.cult);
 }
 
+
+function post(path, params, method) {
+  method = method || 'post';
+  const form = document.createElement('form');
+  form.setAttribute('method', method);
+  form.setAttribute('action', path);
+
+  for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+      const hiddenField = document.createElement('input');
+      hiddenField.setAttribute('type', 'hidden');
+      hiddenField.setAttribute('name', key);
+      hiddenField.setAttribute('value', params[key]);
+      form.appendChild(hiddenField);
+    }
+  }
+
+  document.body.appendChild(form);
+  form.submit();
+}
+
 function calcScore(score, max) {
   return Math.round(((100 * (max + score)) / (2 * max)).toFixed(1));
 }
 
 function results() {
-  location.href = 'results.html'
-    + `?i=${calcScore(idty, maxIdentity)}`
-    + `&p=${calcScore(prop, maxProperty)}`
-    + `&c=${calcScore(cult, maxCulture)}`;
+  localStorage.setItem('i', calcScore(idty, maxIdentity));
+  localStorage.setItem('p', calcScore(prop, maxProperty));
+  localStorage.setItem('c', calcScore(cult, maxCulture));
+
+  const age = localStorage.getItem('age');
+  const sex = localStorage.getItem('sex');
+  const country = localStorage.getItem('country');
+  const i = localStorage.getItem('i');
+  const p = localStorage.getItem('p');
+  const c = localStorage.getItem('c');
+
+  post('/quiz', {
+    age, sex, country, i, p, c,
+  });
 }
 
 function initQuestion() {
@@ -38,7 +69,7 @@ function initQuestion() {
   }
 }
 
-function next_question(mult) {
+function nextQuestion(mult) {
   idty += mult * questions[qn].effect.idty;
   prop += mult * questions[qn].effect.prop;
   cult += mult * questions[qn].effect.cult;
@@ -51,7 +82,7 @@ function next_question(mult) {
   }
 }
 
-function prev_question() {
+function prevQuestion() {
   if (previousAnswer == null) {
     return;
   }

@@ -1,0 +1,39 @@
+html
+    head
+        title 3axes
+        icon(href="static/images/icon.png")
+        link(rel="stylesheet", href="static/css/style.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700")
+    body
+        h1 3axes
+        hr
+        button(class="button", onclick="location.href='instructions'", style="font-size:36pt") Click here to start!
+
+        h2 What is 3axes?
+        p 3axes is a political quiz that attempts to assign percentages for three political axes. You will be presented by a statement, and then you will answer with your opinion on the statement, from <b>Strongly Agree</b> to <b>Strongly Disagree</b>, with each answer slightly affecting your scores. At the end of the quiz, your answers will be compared to the maximum possible for each value, thus giving you a percentage. Answer honestly!
+        <p>There are <b><u><span id="numOfQuestions"></span></u></b> questions.</p>
+        br
+        h2 What are the three axes?
+        p In-group, Property, and Society - and each has two opposing values assigned to them.
+        br
+        
+        <p class="value-description"><b style="color:#0000ff;">Tribal</b> (In-group)<br/>
+            div Those with higher Individual scores are more nationalistic or individualistic.</p>
+        <p class="value-description"><b style="color:#ffff00;">Global</b> (In-group)<br/>
+            div Those with higher Global scores are cosmopolitan and globalist.</p>
+        <br>
+        <p class="value-description"><b style="color:#ff0000;">Private</b> (Property)<br/>
+            div Those with higher Private scores believe in personal liberties and responsibility.</p>
+        <p class="value-description"><b style="color:#00ffff;">Collective</b> (Property)<br/>
+            div Those with higher Collective scores believe in state power and wealth redistribution.</p>
+        <br>
+        <p class="value-description"><b style="color:#00ff00;">Cohesion</b> (Cultural)<br/>
+            div Those with higher Cohesion scores believe in cultural homogeneity and adherence to a moral code.</p>
+        <p class="value-description"><b style="color:#ff00ff;">Diversity</b> (Cultural)<br/>
+            div Those with higher Diversity scores believe in cultural change and equality.</p>
+        <br>
+
+        script(src="static/js/questions.js")
+        script.
+            document.getElementById("numOfQuestions").innerHTML = questions.length;
+            
