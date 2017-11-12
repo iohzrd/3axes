@@ -2,17 +2,17 @@ const doc = window.document;
 
 let maxIdentity = 0;
 let maxProperty = 0;
-let maxCulture = 0;
+let maxSociety = 0;
 let idty = 0;
 let prop = 0;
-let cult = 0;
+let scty = 0;
 let qn = 0;
 let previousAnswer = null;
 
 for (let i = 0; i < questions.length; i++) {
   maxIdentity += Math.abs(questions[i].effect.idty);
   maxProperty += Math.abs(questions[i].effect.prop);
-  maxCulture += Math.abs(questions[i].effect.cult);
+  maxSociety += Math.abs(questions[i].effect.scty);
 }
 
 
@@ -43,17 +43,17 @@ function calcScore(score, max) {
 function results() {
   localStorage.setItem('i', calcScore(idty, maxIdentity));
   localStorage.setItem('p', calcScore(prop, maxProperty));
-  localStorage.setItem('c', calcScore(cult, maxCulture));
+  localStorage.setItem('c', calcScore(scty, maxSociety));
 
   const age = localStorage.getItem('age');
   const sex = localStorage.getItem('sex');
   const country = localStorage.getItem('country');
-  const i = localStorage.getItem('i');
-  const p = localStorage.getItem('p');
-  const c = localStorage.getItem('c');
+  const identity = localStorage.getItem('i');
+  const property = localStorage.getItem('p');
+  const society = localStorage.getItem('c');
 
   post('/quiz', {
-    age, sex, country, i, p, c,
+    age, sex, country, identity, property, society,
   });
 }
 
@@ -72,7 +72,7 @@ function initQuestion() {
 function nextQuestion(mult) {
   idty += mult * questions[qn].effect.idty;
   prop += mult * questions[qn].effect.prop;
-  cult += mult * questions[qn].effect.cult;
+  scty += mult * questions[qn].effect.scty;
   qn += 1;
   previousAnswer = mult;
   if (qn < questions.length) {
@@ -89,7 +89,7 @@ function prevQuestion() {
   qn -= 1;
   idty -= previousAnswer * questions[qn].effect.idty;
   prop -= previousAnswer * questions[qn].effect.prop;
-  cult -= previousAnswer * questions[qn].effect.cult;
+  scty -= previousAnswer * questions[qn].effect.scty;
   previousAnswer = null;
   initQuestion();
 }

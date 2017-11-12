@@ -11,7 +11,7 @@ function setBarValue(name, value) {
 
 const idtyArray = ['Globalist', 'Cosmopolitan', 'Civic Nationalist', 'Ethno-Nationalist', 'Covenant Communitarian'];
 const propArray = ['Communist', 'Socialist', 'Statist', 'Minarchist', 'Laissez-faire'];
-const cultArray = ['Revolutionary', 'Progressive', 'Neutral', 'Traditional', 'Reactionary'];
+const sctyArray = ['Revolutionary', 'Progressive', 'Neutral', 'Traditional', 'Reactionary'];
 
 function setLabel(val, ary) {
   if (val > 100) { return ''; } else
@@ -40,7 +40,7 @@ setBarValue('cohesion', cohesion);
 
 document.getElementById('in-group-label').innerHTML = setLabel(globalism, idtyArray);
 document.getElementById('property-label').innerHTML = setLabel(collectivism, propArray);
-document.getElementById('culture-label').innerHTML = setLabel(diversity, cultArray);
+document.getElementById('society-label').innerHTML = setLabel(diversity, sctyArray);
 
 let ideology = '';
 let ideodist = Infinity;
@@ -48,10 +48,14 @@ for (let i = 0; i < ideologies.length; i++) {
   let dist = 0;
   dist += Math.pow(Math.abs(ideologies[i].stats.idty - globalism), 1);
   dist += Math.pow(Math.abs(ideologies[i].stats.prop - collectivism), 1);
-  dist += Math.pow(Math.abs(ideologies[i].stats.cult - diversity), 1);
+  dist += Math.pow(Math.abs(ideologies[i].stats.scty - diversity), 1);
   if (dist < ideodist) {
     ideology = ideologies[i].name;
     ideodist = dist;
   }
 }
 document.getElementById('ideology-label').innerHTML = ideology;
+
+globalResults.forEach((element) => {
+
+});
