@@ -4,8 +4,8 @@ function onclick(point) {
   console.log(point);
 }
 const options = {
-  width: '98%',
-  height: '98%',
+  width: '90%',
+  height: '90%',
   style: 'dot-color',
   showPerspective: false,
   showGrid: true,

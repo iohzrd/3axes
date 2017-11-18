@@ -35,9 +35,8 @@ function post(path, params, method) {
   document.body.appendChild(form);
   form.submit();
 }
-
 function calcScore(score, max) {
-  return Math.round(((100 * (max + score)) / (2 * max)).toFixed(1));
+  return Math.ceil(Math.round(((100 * (max + score)) / (2 * max)).toFixed(1)) / 10) * 10;
 }
 
 function results() {

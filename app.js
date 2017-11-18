@@ -7,12 +7,12 @@ const MongoClient = require('mongodb').MongoClient;
 
 const url = 'mongodb://localhost:27017/3axes';
 
-MongoClient.connect(url, (err, db) => {
-  if (err) { console.log('Could not connected to DB!'); }
-  console.log('Connected to DB!');
-  db.collection('results').remove({});
-  console.log('DB cleared');
-});
+// MongoClient.connect(url, (err, db) => {
+//   if (err) { console.log('Could not connected to DB!'); }
+//   console.log('Connected to DB!');
+//   db.collection('results').remove({});
+//   console.log('DB cleared');
+// });
 
 const app = express();
 app.set('view engine', 'pug');
@@ -58,11 +58,64 @@ app.get('/results', (req, res) => {
   MongoClient.connect(url, (err, db) => {
     if (err) throw err;
     const r = db.collection('results');
-    r.find({}, { results: 1, _id: 0 }).toArray((err, result) => {
+    r.find({}, { results: 1, _id: 0 }).toArray((err, results) => {
       if (err) throw err;
 
-      console.log({ all: JSON.stringify(result) });
-      res.render('results', { all: JSON.stringify(result) });
+      for (let index = 0; index < results.length; index++) {
+        const singleResult = results[index];
+        console.log(singleResult);
+        r.count(singleResult, (err, count) => {
+          if (err) throw err;
+          console.log(count);
+        });
+      }
+
+      // console.log({ all: JSON.stringify(results) });
+      res.render('results', { all: JSON.stringify(results) });
+      res.end();
+      db.close();
+    });
+  });
+});
+app.post('/results', (req, res) => {
+  let country = '';
+  let sex = '';
+  console.log(req.body.ageMin);
+  console.log(req.body.ageMax);
+  console.log(req.body.country);
+  if (req.body.country === 'all') {
+    country = /^/;
+  } else {
+    country = req.body.country;
+  }
+  if (req.body.sex === 'all') {
+    sex = /^/;
+  } else {
+    sex = req.body.sex;
+  }
+
+  MongoClient.connect(url, (err, db) => {
+    if (err) throw err;
+    const r = db.collection('results');
+    r.find({
+      'results.age': { $gte: req.body.ageMin, $lte: req.body.ageMax },
+      'results.country': country,
+      'results.sex': sex,
+    }, { results: 1, _id: 0 }).toArray((err, results) => {
+      if (err) throw err;
+      console.log(results);
+
+      for (let index = 0; index < results.length; index++) {
+        const singleResult = results[index];
+        console.log(singleResult);
+        r.count(singleResult, (err, count) => {
+          if (err) throw err;
+          console.log(count);
+        });
+      }
+
+      // console.log({ all: JSON.stringify(results) });
+      res.render('results', { all: JSON.stringify(results) });
       res.end();
       db.close();
     });

@@ -9,7 +9,7 @@ function setBarValue(name, value) {
   }
 }
 
-const idtyArray = ['Globalist', 'Cosmopolitan', 'Civic Nationalist', 'Ethno-Nationalist', 'Covenant Communitarian'];
+const idtyArray = ['Globalist', 'Cosmopolitan', 'Civic Nationalist', 'Covenant Communitarian', 'Ethno-Nationalist'];
 const propArray = ['Communist', 'Socialist', 'Statist', 'Minarchist', 'Laissez-faire'];
 const sctyArray = ['Revolutionary', 'Progressive', 'Neutral', 'Traditional', 'Reactionary'];
 
