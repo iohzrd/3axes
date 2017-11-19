@@ -36,6 +36,12 @@ app.get('/quiz', (req, res) => {
   res.end();
 });
 app.post('/quiz', (req, res) => {
+  const user = {
+    ip: req.connection.remoteAddress,
+    age: req.body.age,
+    country: req.body.country,
+    sex: req.body.sex,
+  };
   MongoClient.connect(url, (clientError, db) => {
     if (clientError) throw clientError;
     db.collection('results').find({
@@ -43,9 +49,9 @@ app.post('/quiz', (req, res) => {
     }, { _id: 0 }).toArray((err, results) => {
       if (err) throw err;
       if (results.length > 0) {
-        console.log('DELETE');
-        console.log(results);
-        console.log(results[0].results.users);
+        // console.log('DELETE');
+        // console.log(results);
+        // console.log(results[0].results.users);
         db.collection('results').update(
           results[0],
           { $pull: { 'results.users': { ip: req.connection.remoteAddress } } },
@@ -64,17 +70,7 @@ app.post('/quiz', (req, res) => {
         'results.society': req.body.society,
       },
       {
-        results: {
-          identity: req.body.identity,
-          property: req.body.property,
-          society: req.body.society,
-          users: [{
-            ip: req.connection.remoteAddress,
-            age: req.body.age,
-            country: req.body.country,
-            sex: req.body.sex,
-          }],
-        },
+        $push: { 'results.users': user },
       },
       {
         upsert: true,
@@ -91,8 +87,8 @@ app.post('/quiz', (req, res) => {
       'results.society': req.body.society,
     }, { _id: 0 }).toArray((err, results) => {
       if (err) throw err;
-      console.log('SPECIFIC RESULTS');
-      console.log(results);
+      // console.log('SPECIFIC RESULTS');
+      // console.log(results);
     });
   });
 
@@ -100,8 +96,8 @@ app.post('/quiz', (req, res) => {
     if (clientError) throw clientError;
     db.collection('results').find({}, { _id: 0 }).toArray((err, results) => {
       if (err) throw err;
-      console.log('ALL RESULTS');
-      console.log(results);
+      // console.log('ALL RESULTS');
+      // console.log(results);
     });
   });
 
@@ -120,11 +116,16 @@ app.get('/results', (req, res) => {
       // console.log(resultsE);
 
       resultsE.forEach((singleResult) => {
+        resultsE.maxCount = 0;
+        if (resultsE.maxCount < singleResult.results.users.length) {
+          resultsE.maxCount = singleResult.results.users.length;
+        }
         singleResult.results.count = singleResult.results.users.length;
         singleResult.results.users.forEach((users) => {
           users.ip = '';
           console.log(singleResult.results.users);
         });
+        console.log(resultsE);
       });
 
       res.render('results', { all: JSON.stringify(resultsE) });
