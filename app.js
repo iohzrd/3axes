@@ -3,16 +3,16 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const pug = require('pug');
 
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 
 const url = 'mongodb://localhost:27017/3axes';
 
-// MongoClient.connect(url, (err, db) => {
-//   if (err) { console.log('Could not connected to DB!'); }
-//   console.log('Connected to DB!');
-//   db.collection('results').remove({});
-//   console.log('DB cleared');
-// });
+MongoClient.connect(url, (err, db) => {
+  if (err) { console.log('Could not connected to DB!'); }
+  console.log('Connected to DB!');
+  db.collection('results').remove({});
+  console.log('DB cleared');
+});
 
 const app = express();
 app.set('view engine', 'pug');
@@ -36,42 +36,98 @@ app.get('/quiz', (req, res) => {
   res.end();
 });
 app.post('/quiz', (req, res) => {
-  quizResults = { ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress, results: req.body };
-  MongoClient.connect(url, (err, db) => {
-    if (err) throw err;
+  MongoClient.connect(url, (clientError, db) => {
+    if (clientError) throw clientError;
+    db.collection('results').find({
+      'results.users.ip': req.connection.remoteAddress,
+    }, { _id: 0 }).toArray((err, results) => {
+      if (err) throw err;
+      if (results.length > 0) {
+        console.log('DELETE');
+        console.log(results);
+        console.log(results[0].results.users);
+        db.collection('results').update(
+          results[0],
+          { $pull: { 'results.users': { ip: req.connection.remoteAddress } } },
 
+        );
+      }
+    });
+  });
+
+  MongoClient.connect(url, (clientError, db) => {
+    if (clientError) throw clientError;
     db.collection('results').update(
-      { ip: quizResults.ip },
-      quizResults,
+      {
+        'results.identity': req.body.identity,
+        'results.property': req.body.property,
+        'results.society': req.body.society,
+      },
+      {
+        results: {
+          identity: req.body.identity,
+          property: req.body.property,
+          society: req.body.society,
+          users: [{
+            ip: req.connection.remoteAddress,
+            age: req.body.age,
+            country: req.body.country,
+            sex: req.body.sex,
+          }],
+        },
+      },
       {
         upsert: true,
         multi: false,
       },
     );
   });
+
+  MongoClient.connect(url, (clientError, db) => {
+    if (clientError) throw clientError;
+    db.collection('results').find({
+      'results.identity': req.body.identity,
+      'results.property': req.body.property,
+      'results.society': req.body.society,
+    }, { _id: 0 }).toArray((err, results) => {
+      if (err) throw err;
+      console.log('SPECIFIC RESULTS');
+      console.log(results);
+    });
+  });
+
+  MongoClient.connect(url, (clientError, db) => {
+    if (clientError) throw clientError;
+    db.collection('results').find({}, { _id: 0 }).toArray((err, results) => {
+      if (err) throw err;
+      console.log('ALL RESULTS');
+      console.log(results);
+    });
+  });
+
   return res.redirect('results');
 });
 
-app.get('/results', (req, res) => {
-  // res.render('results');
 
+app.get('/results', (req, res) => {
   MongoClient.connect(url, (err, db) => {
     if (err) throw err;
     const r = db.collection('results');
-    r.find({}, { results: 1, _id: 0 }).toArray((err, results) => {
+    r.find({}, { _id: 0 }).toArray((err, results) => {
       if (err) throw err;
 
-      for (let index = 0; index < results.length; index++) {
-        const singleResult = results[index];
-        console.log(singleResult);
-        r.count(singleResult, (err, count) => {
-          if (err) throw err;
-          console.log(count);
-        });
-      }
+      const resultsE = results;
+      // console.log(resultsE);
 
-      // console.log({ all: JSON.stringify(results) });
-      res.render('results', { all: JSON.stringify(results) });
+      resultsE.forEach((singleResult) => {
+        singleResult.results.count = singleResult.results.users.length;
+        singleResult.results.users.forEach((users) => {
+          users.ip = '';
+          console.log(singleResult.results.users);
+        });
+      });
+
+      res.render('results', { all: JSON.stringify(resultsE) });
       res.end();
       db.close();
     });
@@ -80,9 +136,6 @@ app.get('/results', (req, res) => {
 app.post('/results', (req, res) => {
   let country = '';
   let sex = '';
-  console.log(req.body.ageMin);
-  console.log(req.body.ageMax);
-  console.log(req.body.country);
   if (req.body.country === 'all') {
     country = /^/;
   } else {
@@ -101,23 +154,25 @@ app.post('/results', (req, res) => {
       'results.age': { $gte: req.body.ageMin, $lte: req.body.ageMax },
       'results.country': country,
       'results.sex': sex,
-    }, { results: 1, _id: 0 }).toArray((err, results) => {
+    }, { _id: 0 }).toArray((err, results) => {
       if (err) throw err;
-      console.log(results);
+      const resultsE = results;
+      // console.log(resultsE);
 
-      for (let index = 0; index < results.length; index++) {
-        const singleResult = results[index];
-        console.log(singleResult);
-        r.count(singleResult, (err, count) => {
+      resultsE.forEach((singleResult) => {
+        r.count({
+          'results.property': singleResult.results.property,
+          'results.identity': singleResult.results.identity,
+          'results.society': singleResult.results.society,
+        }, (err, count) => {
           if (err) throw err;
-          console.log(count);
+          singleResult.results.count = singleResult.results.users.length;
+          console.log(singleResult.results.count);
         });
-      }
+      });
 
-      // console.log({ all: JSON.stringify(results) });
-      res.render('results', { all: JSON.stringify(results) });
-      res.end();
       db.close();
+      return res.render('results', { all: JSON.stringify(resultsE) });
     });
   });
 });

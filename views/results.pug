@@ -2,14 +2,11 @@ html
     head
         title 3axes
         link(rel="stylesheet", href="static/css/style.css")
-        link(rel="stylesheet", href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700")
         script.
             var globalResults = !{all}
         script(src="static/js/ideologies.js")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js")
-        script(src="https://code.jquery.com/jquery-1.11.3.min.js")
-        script(src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js")
 
 <body>
     <h1>3axes</h1>
@@ -64,11 +61,12 @@ html
     <form id="demographic-form" align="center" action="/results" method="post">
         <h2>Visualization</h2>
         <h2>Sort by:</h2>
-        <br>        
-        <div data-role="rangeslider">
-            <label for="ageMax">Age:</label>
-            <input type="range" name="ageMin" id="ageMin" value="13" min="13" max="99">
-            <input type="range" name="ageMax" id="ageMax" value="99" min="13" max="99">
+        <br>     
+        <div>
+            <label for="ageMin">Minimum Age:</label>
+            <input id="ageMin" name="ageMin" type="number" value="13" name="age" min="13" max="99" required>   
+            <label for="ageMax">Maximum Age:</label>
+            <input id="ageMax" name="ageMax" type="number" value="99" name="age" min="13" max="99" required>   
         </div>
         <div>
             <label for="sex">Sex:</label>
@@ -329,8 +327,8 @@ html
     </form>
     <div id="visualization"></div>
 
-    <br>
-    <button class="button" onclick="location.href='/';" style="background-color: #2196f3;">Back</button> <br>
+    //- <br>
+    //- <button class="button" onclick="location.href='/';" style="background-color: #2196f3;">Back</button> <br>
 
     script(src="static/js/results.js")
     script(src="static/js/visualization.js")
