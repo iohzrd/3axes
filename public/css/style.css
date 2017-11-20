@@ -127,7 +127,7 @@ div.bar {
     border-right-width: 1px;
     border-top-style: solid;
     border-bottom-style: solid;
-    border-color: #222222;
+    border-color: #000000;
     background-color: #eeeeee;
     display: block;
     width: 50%;
@@ -136,7 +136,7 @@ div.text-wrapper {
     font-family: 'Montserrat', sans-serif;
     font-size: 36pt;
     line-height: 36pt;
-    color: #222222;
+    color: #000000;
     display: inline-block;
 }
 div.collectivism {
