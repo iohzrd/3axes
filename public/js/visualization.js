@@ -20,8 +20,6 @@ const options = {
     vertical: 0.5,
     distance: 1.75,
   },
-  valueMin: 0,
-  valueMax: 7000000000,
   xMin: 0,
   xMax: 100,
   xLabel: 'In-group(globalism)',
@@ -34,20 +32,21 @@ const options = {
 };
 
 
-function drawVisualization(x, y, z) {
+function drawVisualization(x, y, z, count) {
   data.add({
     x,
     y,
     z,
-    style: 'black',
+    style: count,
   });
 }
 
-drawVisualization(globalism, collectivism, diversity);
-
+drawVisualization(globalism, collectivism, diversity, 1);
 for (let index = 0; index < globalResults.length; index++) {
-  const { identity, property, society } = globalResults[index].results;
-  drawVisualization(identity, property, society);
+  const {
+    identity, property, society, count,
+  } = globalResults[index].results;
+  drawVisualization(identity, property, society, count);
 }
 
 const graph = new vis.Graph3d(container, data, options);
