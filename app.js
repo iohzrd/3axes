@@ -117,6 +117,8 @@ app.get('/results', (req, res) => {
     });
   });
 });
+
+
 app.post('/results', (req, res) => {
   let country = '';
   let sex = '';
@@ -135,23 +137,22 @@ app.post('/results', (req, res) => {
     if (err) throw err;
     const r = db.collection('results');
     r.find({
-      'results.age': { $gte: req.body.ageMin, $lte: req.body.ageMax },
-      'results.country': country,
-      'results.sex': sex,
+      'results.users.age': { $gte: req.body.ageMin, $lte: req.body.ageMax },
+      'results.users.country': country,
+      'results.users.sex': sex,
     }, { _id: 0 }).toArray((err, results) => {
       if (err) throw err;
       const resultsE = results;
-      // console.log(resultsE);
+      console.log(resultsE);
 
       resultsE.forEach((singleResult) => {
-        r.count({
-          'results.property': singleResult.results.property,
-          'results.identity': singleResult.results.identity,
-          'results.society': singleResult.results.society,
-        }, (err, count) => {
-          if (err) throw err;
-          singleResult.results.count = singleResult.results.users.length;
-        });
+        singleResult.results.count = singleResult.results.users.length;
+        // singleResult.results.users.forEach((users) => {
+        //   users.ip = '';
+        //   console.log(singleResult.results);
+        //   console.log(singleResult.results.users);
+        // });
+        console.log(singleResult.results.users);
       });
 
       db.close();

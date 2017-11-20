@@ -20,15 +20,16 @@ const options = {
     vertical: 0.5,
     distance: 1.75,
   },
+  valueMin: 1,
+  xLabel: 'In-group(globalism)',
   xMin: 0,
   xMax: 100,
-  xLabel: 'In-group(globalism)',
+  yLabel: 'Property(collectivism)',
   yMin: 0,
   yMax: 100,
-  yLabel: 'Property(collectivism)',
+  zLabel: 'Culture(diversity)',
   zMin: 0,
   zMax: 100,
-  zLabel: 'Culture(diversity)',
 };
 
 
