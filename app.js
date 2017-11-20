@@ -102,11 +102,11 @@ app.get('/results', (req, res) => {
       const resultsE = results;
       resultsE.forEach((singleResult) => {
         singleResult.results.count = singleResult.results.users.length;
-        // singleResult.results.users.forEach((users) => {
-        //   users.ip = '';
-        //   console.log(singleResult.results);
-        //   console.log(singleResult.results.users);
-        // });
+        singleResult.results.users.forEach((users) => {
+          users.ip = '';
+          // console.log(singleResult.results);
+          // console.log(singleResult.results.users);
+        });
       });
       // console.log(resultsE);
 
@@ -143,16 +143,16 @@ app.post('/results', (req, res) => {
     }, { _id: 0 }).toArray((err, results) => {
       if (err) throw err;
       const resultsE = results;
-      console.log(resultsE);
+      // console.log(resultsE);
 
       resultsE.forEach((singleResult) => {
         singleResult.results.count = singleResult.results.users.length;
-        // singleResult.results.users.forEach((users) => {
-        //   users.ip = '';
+        singleResult.results.users.forEach((users) => {
+          users.ip = '';
         //   console.log(singleResult.results);
         //   console.log(singleResult.results.users);
-        // });
-        console.log(singleResult.results.users);
+        });
+        // console.log(singleResult.results.users);
       });
 
       db.close();
