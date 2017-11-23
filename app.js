@@ -14,6 +14,15 @@ const url = 'mongodb://localhost:27017/3axes';
 //   console.log('DB cleared');
 // });
 
+MongoClient.connect(url, (err, db) => {
+  if (err) throw err;
+  db.createCollection('results', (err, res) => {
+    if (err) throw err;
+    console.log('Collection created!');
+    db.close();
+  });
+});
+
 const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
