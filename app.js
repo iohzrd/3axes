@@ -35,7 +35,7 @@ app.get('/quiz', (req, res) => {
   res.end();
 });
 app.post('/quiz', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const user = {
     ip: req.connection.remoteAddress,
     age: req.body.age,
@@ -120,47 +120,16 @@ app.get('/results', (req, res) => {
 });
 
 app.post('/results', (req, res) => {
-  let country;
-  let income;
-  let race;
-  let religion;
-  let sex;
-  if (req.body.country === 'all') {
-    country = /^/;
-  } else {
-    country = req.body.country;
-  }
-  if (req.body.income === 'all') {
-    income = /^/;
-  } else {
-    income = req.body.income;
-  }
-  if (req.body.race === 'all') {
-    race = /^/;
-  } else {
-    race = req.body.race;
-  }
-  if (req.body.religion === 'all') {
-    religion = /^/;
-  } else {
-    religion = req.body.religion;
-  }
-  if (req.body.sex === 'all') {
-    sex = /^/;
-  } else {
-    sex = req.body.sex;
-  }
-
   MongoClient.connect(url, (err, db) => {
     if (err) throw err;
     const r = db.collection('results');
     r.find({
       'results.users.age': { $gte: req.body.ageMin, $lte: req.body.ageMax },
-      'results.users.country': country,
-      'results.users.income': income,
-      'results.users.race': race,
-      'results.users.religion': religion,
-      'results.users.sex': sex,
+      'results.users.country': (req.body.country === 'all') ? /^/ : req.body.country,
+      'results.users.income': (req.body.income === 'all') ? /^/ : req.body.income,
+      'results.users.race': (req.body.race === 'all') ? /^/ : req.body.race,
+      'results.users.religion': (req.body.religion === 'all') ? /^/ : req.body.religion,
+      'results.users.sex': (req.body.sex === 'all') ? /^/ : req.body.sex,
     }, { _id: 0 }).toArray((err, results) => {
       if (err) throw err;
       const resultsE = results;
