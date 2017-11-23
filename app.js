@@ -44,10 +44,8 @@ app.get('/quiz', (req, res) => {
   res.end();
 });
 app.post('/quiz', (req, res) => {
-  console.log(req.connection.remoteAddress);
-  console.log(req.header('x-forwarded-for'));
   const user = {
-    ip: req.connection.remoteAddress,
+    ip: req.header('x-forwarded-for'),
     age: req.body.age,
     country: req.body.country,
     income: req.body.income,
