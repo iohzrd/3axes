@@ -7,12 +7,12 @@ const { MongoClient } = require('mongodb');
 
 const url = 'mongodb://localhost:27017/3axes';
 
-// MongoClient.connect(url, (err, db) => {
-//   if (err) { console.log('Could not connected to DB!'); }
-//   console.log('Connected to DB!');
-//   db.collection('results').remove({});
-//   console.log('DB cleared');
-// });
+MongoClient.connect(url, (err, db) => {
+  if (err) { console.log('Could not connected to DB!'); }
+  console.log('Connected to DB!');
+  db.collection('results').remove({});
+  console.log('DB cleared');
+});
 
 // MongoClient.connect(url, (err, db) => {
 //   if (err) throw err;
