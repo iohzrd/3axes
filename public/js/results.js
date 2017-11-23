@@ -15,10 +15,10 @@ const sctyArray = ['Revolutionary', 'Progressive', 'Neutral', 'Traditional', 'Re
 
 function setLabel(val, ary) {
   if (val > 100) { return ''; } else
-  if (val >= 80) { return ary[0]; } else
-  if (val >= 60) { return ary[1]; } else
-  if (val >= 40) { return ary[2]; } else
-  if (val >= 20) { return ary[3]; } else
+  if (val >= 75) { return ary[0]; } else
+  if (val >= 55) { return ary[1]; } else
+  if (val >= 45) { return ary[2]; } else
+  if (val >= 25) { return ary[3]; } else
   if (val >= 0) { return ary[4]; } return '';
 }
 

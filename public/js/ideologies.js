@@ -10,7 +10,7 @@ const ideologies = [
   { name: 'De Leonism', stats: { scty: 80, idty: 70, prop: 90 } },
   { name: 'Democratic Socialism', stats: { scty: 80, idty: 50, prop: 90 } },
   { name: 'Distributism', stats: { scty: 20, idty: 50, prop: 70 } },
-  { name: 'Exclusive Democracy', stats: { scty: 40, idty: 20, prop: 30 } },
+  { name: 'Exclusive Democracy', stats: { scty: 50, idty: 40, prop: 50 } },
   { name: 'Left-Wing Populism', stats: { scty: 60, idty: 50, prop: 70 } },
   { name: 'Leninism', stats: { scty: 70, idty: 60, prop: 90 } },
   { name: 'Liberalism', stats: { scty: 60, idty: 60, prop: 50 } },
