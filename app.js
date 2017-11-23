@@ -7,19 +7,18 @@ const { MongoClient } = require('mongodb');
 
 const url = 'mongodb://localhost:27017/3axes';
 
-// MongoClient.connect(url, (err, db) => {
-//   if (err) { console.log('Could not connected to DB!'); }
-//   console.log('Connected to DB!');
-//   db.collection('results').remove({});
-//   console.log('DB cleared');
-// });
+MongoClient.connect(url, (err, db) => {
+  if (err) { console.log('Could not connected to DB!'); }
+  console.log('Connected to DB!');
+  db.collection('results').remove({});
+  console.log('DB cleared');
+});
 
 const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/static', express.static(path.join(__dirname, 'public')));
-
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -36,10 +35,14 @@ app.get('/quiz', (req, res) => {
   res.end();
 });
 app.post('/quiz', (req, res) => {
+  console.log(req.body);
   const user = {
     ip: req.connection.remoteAddress,
     age: req.body.age,
     country: req.body.country,
+    income: req.body.income,
+    race: req.body.race,
+    religion: req.body.religion,
     sex: req.body.sex,
   };
   MongoClient.connect(url, (clientError, db) => {
@@ -91,7 +94,6 @@ app.post('/quiz', (req, res) => {
   return res.redirect('results');
 });
 
-
 app.get('/results', (req, res) => {
   MongoClient.connect(url, (err, db) => {
     if (err) throw err;
@@ -110,7 +112,6 @@ app.get('/results', (req, res) => {
       });
       // console.log(resultsE);
 
-
       res.render('results', { all: JSON.stringify(resultsE) });
       res.end();
       db.close();
@@ -118,14 +119,31 @@ app.get('/results', (req, res) => {
   });
 });
 
-
 app.post('/results', (req, res) => {
-  let country = '';
-  let sex = '';
+  let country;
+  let income;
+  let race;
+  let religion;
+  let sex;
   if (req.body.country === 'all') {
     country = /^/;
   } else {
     country = req.body.country;
+  }
+  if (req.body.income === 'all') {
+    income = /^/;
+  } else {
+    income = req.body.income;
+  }
+  if (req.body.race === 'all') {
+    race = /^/;
+  } else {
+    race = req.body.race;
+  }
+  if (req.body.religion === 'all') {
+    religion = /^/;
+  } else {
+    religion = req.body.religion;
   }
   if (req.body.sex === 'all') {
     sex = /^/;
@@ -139,6 +157,9 @@ app.post('/results', (req, res) => {
     r.find({
       'results.users.age': { $gte: req.body.ageMin, $lte: req.body.ageMax },
       'results.users.country': country,
+      'results.users.income': income,
+      'results.users.race': race,
+      'results.users.religion': religion,
       'results.users.sex': sex,
     }, { _id: 0 }).toArray((err, results) => {
       if (err) throw err;
@@ -161,4 +182,4 @@ app.post('/results', (req, res) => {
   });
 });
 
-app.listen(8080, 'localhost');
+app.listen(3000);

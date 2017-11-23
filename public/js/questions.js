@@ -1,7 +1,39 @@
 const questions = [
   {
     question: 'Government is necessary.',
+    effect: { scty: 0, idty: 0, prop: -100 },
+  },
+  {
+    question: 'From each according to his ability, to each according to his needs.',
+    effect: { scty: 0, idty: 0, prop: 100 },
+  },
+  {
+    question: 'Diversity results in conflict.',
+    effect: { scty: 0, idty: -100, prop: 0 },
+  },
+  {
+    question: 'Diversity is a strength.',
+    effect: { scty: 0, idty: 100, prop: 0 },
+  },
+  {
+    question: 'Equality is impossible.',
+    effect: { scty: -100, idty: 0, prop: 0 },
+  },
+  {
+    question: 'All people are equal.',
+    effect: { scty: 100, idty: 0, prop: 0 },
+  },
+  {
+    question: 'The government should manage national parks.',
+    effect: { scty: 0, idty: 0, prop: 10 },
+  },
+  {
+    question: 'A flat tax is the most fair type of tax.',
     effect: { scty: 0, idty: 0, prop: -10 },
+  },
+  {
+    question: 'People should be judged individually on their character and abilities.',
+    effect: { scty: -10, idty: 10, prop: 0 },
   },
   {
     question: 'Oppression by corporations is more of a concern than oppression by governments.',
@@ -16,7 +48,7 @@ const questions = [
     effect: { scty: 10, idty: 10, prop: 10 },
   },
   {
-    question: 'All people - regardless of factors like sctyure or sexuality - should be treated equally.',
+    question: 'All people should be treated equally.',
     effect: { scty: 10, idty: 10, prop: 10 },
   },
   {
@@ -78,10 +110,6 @@ const questions = [
   {
     question: 'Environmental regulations are essential.',
     effect: { scty: 0, idty: 0, prop: 10 },
-  },
-  {
-    question: 'From each according to his ability, to each according to his needs.',
-    effect: { scty: 0, idty: 0, prop: 1000 },
   },
   {
     question: 'Taxes should be increased on the rich to provide for the poor.',
@@ -220,7 +248,7 @@ const questions = [
     effect: { scty: -10, idty: 0, prop: 0 },
   },
   {
-    question: 'Reason is more important than maintaining our sctyure.',
+    question: 'Reason is more important than maintaining our culture.',
     effect: { scty: 10, idty: 10, prop: 0 },
   },
   {
@@ -228,7 +256,7 @@ const questions = [
     effect: { scty: 10, idty: -10, prop: -10 },
   },
   {
-    question: 'No sctyures are superior to others.',
+    question: 'No cultures are superior to others.',
     effect: { scty: 10, idty: 10, prop: 0 },
   },
   {
@@ -236,7 +264,7 @@ const questions = [
     effect: { scty: -10, idty: 0, prop: 0 },
   },
   {
-    question: 'If we accept migrants at all, it is important that they assimilate into our sctyure.',
+    question: 'If we accept migrants at all, it is important that they assimilate into our culture.',
     effect: { scty: -10, idty: -10, prop: 0 },
   },
   {
@@ -262,10 +290,6 @@ const questions = [
   {
     question: 'It is better to maintain a balanced budget than to ensure welfare for all citizens.',
     effect: { scty: 0, idty: 0, prop: -10 },
-  },
-  {
-    question: 'Is racial homogeneity is important for national cohesion.',
-    effect: { scty: -10, idty: -10, prop: 0 },
   },
   {
     question: 'International trade is beneficial.',

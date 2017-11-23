@@ -45,14 +45,17 @@ function results() {
   localStorage.setItem('c', calcScore(scty, maxSociety));
 
   const age = localStorage.getItem('age');
-  const sex = localStorage.getItem('sex');
   const country = localStorage.getItem('country');
+  const income = localStorage.getItem('income');
+  const race = localStorage.getItem('race');
+  const religion = localStorage.getItem('religion');
+  const sex = localStorage.getItem('sex');
   const identity = localStorage.getItem('i');
   const property = localStorage.getItem('p');
   const society = localStorage.getItem('c');
 
   post('/quiz', {
-    age, sex, country, identity, property, society,
+    age, country, income, race, religion, sex, identity, property, society,
   });
 }
 

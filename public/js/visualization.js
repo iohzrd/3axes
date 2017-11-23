@@ -13,7 +13,7 @@ const options = {
   showShadow: true,
   keepAspectRatio: true,
   verticalRatio: 1.0,
-  legendLabel: 'distance',
+  legendLabel: 'people/result',
   onclick,
   cameraPosition: {
     horizontal: 0.0,
@@ -42,12 +42,21 @@ function drawVisualization(x, y, z, count) {
   });
 }
 
-drawVisualization(globalism, collectivism, diversity, 1);
-for (let index = 0; index < globalResults.length; index++) {
+drawVisualization(globalism, collectivism, diversity, 0);
+
+globalResults.forEach((singleResult) => {
   const {
     identity, property, society, count,
-  } = globalResults[index].results;
+  } = singleResult.results;
   drawVisualization(identity, property, society, count);
-}
+});
+
+// for (let x = 0; x < 101; x += 10) {
+//   for (let y = 0; y < 101; y += 10) {
+//     for (let z = 0; z < 101; z += 10) {
+//       drawVisualization(x, y, z, Math.floor(Math.random() * 1000) + 1);
+//     }
+//   }
+// }
 
 const graph = new vis.Graph3d(container, data, options);

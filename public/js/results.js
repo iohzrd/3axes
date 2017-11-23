@@ -55,7 +55,3 @@ for (let i = 0; i < ideologies.length; i++) {
   }
 }
 document.getElementById('ideology-label').innerHTML = ideology;
-
-// globalResults.forEach((element) => {
-
-// });
