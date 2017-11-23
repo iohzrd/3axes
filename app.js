@@ -114,8 +114,8 @@ app.get('/results', (req, res) => {
         singleResult.results.count = singleResult.results.users.length;
         singleResult.results.users.forEach((users) => {
           users.ip = '';
-          console.log(singleResult.results);
-          console.log(singleResult.results.users);
+          // console.log(singleResult.results);
+          // console.log(singleResult.results.users);
         });
       });
       // console.log(resultsE);
@@ -147,8 +147,8 @@ app.post('/results', (req, res) => {
         singleResult.results.count = singleResult.results.users.length;
         singleResult.results.users.forEach((users) => {
           users.ip = '';
-          console.log(singleResult.results);
-          console.log(singleResult.results.users);
+          // console.log(singleResult.results);
+          // console.log(singleResult.results.users);
         });
       });
 
