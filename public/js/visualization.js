@@ -1,8 +1,6 @@
 const container = document.getElementById('visualization');
 const data = new vis.DataSet();
-function onclick(point) {
-  console.log(point);
-}
+
 const options = {
   width: '90%',
   height: '90%',
@@ -14,11 +12,35 @@ const options = {
   keepAspectRatio: true,
   verticalRatio: 1.0,
   legendLabel: 'people/result',
-  onclick,
   cameraPosition: {
     horizontal: 0.0,
     vertical: 0.0,
     distance: 1.75,
+  },
+  // Option tooltip can be true, false, or a function returning a string with HTML contents
+  tooltip(point) {
+    // parameter point contains properties x, y, z, and data
+    // data is the original object passed to the point constructor
+    return `
+      <p>Closest match: <b>${getIdeology(point.x, point.y, point.z)}</b>
+      </p><p>In-group(globalism): <b>${point.x}</b></p>
+      <p>Property(collectivism): <b>${point.y}</b></p>
+      <p>Culture(diversity): <b>${point.z}</b></p>`;
+  },
+
+  // Tooltip default styling can be overridden
+  tooltipStyle: {
+    content: {
+      background: 'rgba(255, 255, 255, 0.7)',
+      padding: '10px',
+      borderRadius: '10px',
+    },
+    line: {
+      borderLeft: '1px dotted rgba(0, 0, 0, 0.5)',
+    },
+    dot: {
+      border: '5px solid rgba(0, 0, 0, 0.5)',
+    },
   },
   valueMin: 1,
   xLabel: 'In-group(globalism)',

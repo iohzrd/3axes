@@ -42,16 +42,21 @@ document.getElementById('in-group-label').innerHTML = setLabel(globalism, idtyAr
 document.getElementById('property-label').innerHTML = setLabel(collectivism, propArray);
 document.getElementById('society-label').innerHTML = setLabel(diversity, sctyArray);
 
-let ideology = '';
-let ideodist = Infinity;
-for (let i = 0; i < ideologies.length; i++) {
-  let dist = 0;
-  dist += Math.pow(Math.abs(ideologies[i].stats.idty - globalism), 1);
-  dist += Math.pow(Math.abs(ideologies[i].stats.prop - collectivism), 1);
-  dist += Math.pow(Math.abs(ideologies[i].stats.scty - diversity), 1);
-  if (dist < ideodist) {
-    ideology = ideologies[i].name;
-    ideodist = dist;
+function getIdeology(globalism, collectivism, diversity) {
+  let ideology = '';
+  let ideodist = Infinity;
+  for (let i = 0; i < ideologies.length; i++) {
+    let dist = 0;
+    dist += Math.pow(Math.abs(ideologies[i].stats.idty - globalism), 1);
+    dist += Math.pow(Math.abs(ideologies[i].stats.prop - collectivism), 1);
+    dist += Math.pow(Math.abs(ideologies[i].stats.scty - diversity), 1);
+    if (dist < ideodist) {
+      ideology = ideologies[i].name;
+      ideodist = dist;
+    }
   }
+  return ideology;
 }
-document.getElementById('ideology-label').innerHTML = ideology;
+
+
+document.getElementById('ideology-label').innerHTML = getIdeology(globalism, collectivism, diversity);
