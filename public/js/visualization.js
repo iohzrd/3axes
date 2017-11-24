@@ -20,10 +20,10 @@ const options = {
   tooltip(point) {
     return `
       <p>Closest match: <b>${getIdeology(point.x, point.y, point.z)}</b></p>
-      <p>In-group(globalism): <b>${point.x}</b></p>
-      <p>Property(collectivism): <b>${point.y}</b></p>
-      <p>Culture(diversity): <b>${point.z}</b></p>
-      <p>Count: <b>${point.value}</b></p>`;
+      <p>In-group: <b>${point.x} (${setLabel(point.x, idtyArray)})</b></p>
+      <p>Property: <b>${point.y} (${setLabel(point.y, propArray)})</b></p>
+      <p>Culture:  <b>${point.z} (${setLabel(point.z, sctyArray)})</b></p>
+      <p>Count:    <b>${point.value}</b></p>`;
   },
   valueMin: 1,
   xLabel: 'In-group(globalism)',
@@ -37,7 +37,6 @@ const options = {
   zMax: 100,
 };
 
-
 function drawVisualization(x, y, z, count) {
   data.add({
     x,
@@ -46,8 +45,6 @@ function drawVisualization(x, y, z, count) {
     style: count,
   });
 }
-
-// drawVisualization(globalism, collectivism, diversity, 0);
 
 globalResults.forEach((singleResult) => {
   const {
