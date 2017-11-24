@@ -19,10 +19,10 @@ const options = {
   },
   tooltip(point) {
     return `
-      <p>Closest match: <b>${getIdeology(point.x, point.y, point.z)}</b></p>
-      <p>In-group: <b>${point.x} (${setLabel(point.x, idtyArray)})</b></p>
-      <p>Property: <b>${point.y} (${setLabel(point.y, propArray)})</b></p>
-      <p>Culture:  <b>${point.z} (${setLabel(point.z, sctyArray)})</b></p>
+      <p>Ideology: <b>${getIdeology(point.x, point.y, point.z)}</b></p>
+      <p>In-group: <b>${setLabel(point.x, idtyArray)}</b></p>
+      <p>Property: <b>${setLabel(point.y, propArray)}</b></p>
+      <p>Culture:  <b>${setLabel(point.z, sctyArray)}</b></p>
       <p>Count:    <b>${point.value}</b></p>`;
   },
   valueMin: 1,
