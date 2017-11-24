@@ -22,25 +22,11 @@ const options = {
     // parameter point contains properties x, y, z, and data
     // data is the original object passed to the point constructor
     return `
-      <p>Closest match: <b>${getIdeology(point.x, point.y, point.z)}</b>
-      </p><p>In-group(globalism): <b>${point.x}</b></p>
+      <p>Closest match: <b>${getIdeology(point.x, point.y, point.z)}</b></p>
+      <p>In-group(globalism): <b>${point.x}</b></p>
       <p>Property(collectivism): <b>${point.y}</b></p>
-      <p>Culture(diversity): <b>${point.z}</b></p>`;
-  },
-
-  // Tooltip default styling can be overridden
-  tooltipStyle: {
-    content: {
-      background: 'rgba(255, 255, 255, 0.7)',
-      padding: '10px',
-      borderRadius: '10px',
-    },
-    line: {
-      borderLeft: '1px dotted rgba(0, 0, 0, 0.5)',
-    },
-    dot: {
-      border: '5px solid rgba(0, 0, 0, 0.5)',
-    },
+      <p>Culture(diversity): <b>${point.z}</b></p>
+      <p>Count: <b>${point.value}</b></p>`;
   },
   valueMin: 1,
   xLabel: 'In-group(globalism)',

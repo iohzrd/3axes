@@ -24,6 +24,7 @@ const url = 'mongodb://localhost:27017/3axes';
 // });
 
 const app = express();
+app.enable('trust proxy');
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -45,7 +46,7 @@ app.get('/quiz', (req, res) => {
 });
 app.post('/quiz', (req, res) => {
   const user = {
-    ip: req.header('x-forwarded-for'),
+    ip: req.ip,
     age: req.body.age,
     country: req.body.country,
     income: req.body.income,
@@ -56,7 +57,7 @@ app.post('/quiz', (req, res) => {
   MongoClient.connect(url, (clientError, db) => {
     if (clientError) throw clientError;
     db.collection('results').find({
-      'results.users.ip': req.connection.remoteAddress,
+      'results.users.ip': req.ip,
     }).toArray((err, results) => {
       if (err) throw err;
       if (results.length > 0) {
@@ -67,7 +68,7 @@ app.post('/quiz', (req, res) => {
         ) {
           db.collection('results').update(
             results[0],
-            { $pull: { 'results.users': { ip: req.connection.remoteAddress } } },
+            { $pull: { 'results.users': { ip: req.ip } } },
           );
           db.collection('results').update(
             {
@@ -146,9 +147,9 @@ app.post('/results', (req, res) => {
       resultsE.forEach((singleResult) => {
         singleResult.results.count = singleResult.results.users.length;
         singleResult.results.users.forEach((users) => {
-          users.ip = '';
-          // console.log(singleResult.results);
-          // console.log(singleResult.results.users);
+          // users.ip = '';
+          console.log(singleResult.results);
+          console.log(singleResult.results.users);
         });
       });
 
