@@ -13,14 +13,11 @@ const options = {
   verticalRatio: 1.0,
   legendLabel: 'people/result',
   cameraPosition: {
-    horizontal: 0.0,
+    horizontal: 0,
     vertical: 0.0,
     distance: 1.75,
   },
-  // Option tooltip can be true, false, or a function returning a string with HTML contents
   tooltip(point) {
-    // parameter point contains properties x, y, z, and data
-    // data is the original object passed to the point constructor
     return `
       <p>Closest match: <b>${getIdeology(point.x, point.y, point.z)}</b></p>
       <p>In-group(globalism): <b>${point.x}</b></p>
@@ -50,7 +47,7 @@ function drawVisualization(x, y, z, count) {
   });
 }
 
-drawVisualization(globalism, collectivism, diversity, 0);
+// drawVisualization(globalism, collectivism, diversity, 0);
 
 globalResults.forEach((singleResult) => {
   const {
@@ -58,13 +55,5 @@ globalResults.forEach((singleResult) => {
   } = singleResult.results;
   drawVisualization(identity, property, society, count);
 });
-
-// for (let x = 0; x < 101; x += 10) {
-//   for (let y = 0; y < 101; y += 10) {
-//     for (let z = 0; z < 101; z += 10) {
-//       drawVisualization(x, y, z, Math.floor(Math.random() * 1000) + 1);
-//     }
-//   }
-// }
 
 const graph = new vis.Graph3d(container, data, options);
