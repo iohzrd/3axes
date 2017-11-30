@@ -20,9 +20,9 @@ const options = {
   tooltip(point) {
     return `
       <p>Ideology: <b>${getIdeology(point.x, point.y, point.z)}</b></p>
-      <p>In-group: <b>${setLabel(point.x, idtyArray)}</b></p>
-      <p>Property: <b>${setLabel(point.y, propArray)}</b></p>
-      <p>Culture:  <b>${setLabel(point.z, sctyArray)}</b></p>
+      <p>In-group: <b>${setLabel(point.x, idtyArray)}(${point.x})</b></p>
+      <p>Property: <b>${setLabel(point.y, propArray)}(${point.y})</b></p>
+      <p>Culture:  <b>${setLabel(point.z, sctyArray)}(${point.z})</b></p>
       <p>Count:    <b>${point.value}</b></p>`;
   },
   valueMin: 1,

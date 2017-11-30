@@ -139,36 +139,39 @@ div.text-wrapper {
     color: #000000;
     display: inline-block;
 }
+div.globalism {
+    background-color: #ffff00;
+    text-align: right;
+    border-right-style: solid;
+}
+div.tribalism {
+    background-color: #0000ff;
+    text-align: left;
+    border-left-style: solid;
+}
 div.collectivism {
     background-color: #00ffff;
-    text-align: left;
+    text-align: right;
     border-right-style: solid;
 }
 div.privatism {
     background-color: #ff0000;
     
-    text-align: right;
-    border-left-style: solid;
-}
-div.globalism {
-    background-color: #ffff00;
-    text-align: right;
-    border-left-style: solid;
-}
-div.tribalism {
-    background-color: #0000ff;
     text-align: left;
-    border-right-style: solid;
+    border-left-style: solid;
 }
-div.diversity {
+div.equality {
     background-color: #ff00ff;
     text-align: right;
-    border-left-style: solid;
+    border-right-style: solid;
 }
-div.cohesion {
+div.hierarchy {
     background-color: #00ff00;
     text-align: left;
-    border-right-style: solid;
+    border-left-style: solid;
+}
+div.visualization {
+
 }
 span.weight-300 {
     font-weight: 300;

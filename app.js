@@ -58,7 +58,11 @@ app.post('/quiz', (req, res) => {
     if (clientError) throw clientError;
     db.collection('results').find({
       'results.users.ip': req.ip,
-    }).toArray((err, results) => {
+    }).toArray((err, results) => { // idty = ['Globalist',   'Cosmopolitan',      'Civic Nationalist', 'Covenant Communitarian', 'Ethno-Nationalist'];
+    // prop = ['Communist',   'Socialist',         'Statist',           'Minarchist',             'Laissez-faire'];
+    // scty = ['Egalitarian', 'Equal opportunist', 'Indifferent',       'Chauvinist',             'Elitist'];
+    //          0-10-20        30-40                50                   60-70                     80-90-100
+
       if (err) throw err;
       if (results.length > 0) {
         if (

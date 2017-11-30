@@ -3,23 +3,22 @@ const doc = window.document;
 let maxIdentity = 0;
 let maxProperty = 0;
 let maxSociety = 0;
-let idty = 0;
-let prop = 0;
-let scty = 0;
+let i = 0;
+let p = 0;
+let s = 0;
 let qn = 0;
 let previousAnswer = null;
 
 for (let i = 0; i < questions.length; i++) {
-  maxIdentity += Math.abs(questions[i].effect.idty);
-  maxProperty += Math.abs(questions[i].effect.prop);
-  maxSociety += Math.abs(questions[i].effect.scty);
+  maxIdentity += Math.abs(questions[i].e.i);
+  maxProperty += Math.abs(questions[i].e.p);
+  maxSociety += Math.abs(questions[i].e.s);
 }
 
 
-function post(path, params, method) {
-  method = method || 'post';
+function post(path, params) {
   const form = document.createElement('form');
-  form.setAttribute('method', method);
+  form.setAttribute('method', 'post');
   form.setAttribute('action', path);
 
   for (const key in params) {
@@ -35,14 +34,18 @@ function post(path, params, method) {
   document.body.appendChild(form);
   form.submit();
 }
+
+
 function calcScore(score, max) {
-  return Math.ceil(Math.round(((100 * (max + score)) / (2 * max)).toFixed(1)) / 10) * 10;
+  let n = (100 * (max + score)) / (2 * max);
+  if (n < 50) n -= 1;
+  return Math.round((n) / 10) * 10;
 }
 
 function results() {
-  localStorage.setItem('i', calcScore(idty, maxIdentity));
-  localStorage.setItem('p', calcScore(prop, maxProperty));
-  localStorage.setItem('c', calcScore(scty, maxSociety));
+  localStorage.setItem('i', calcScore(i, maxIdentity));
+  localStorage.setItem('p', calcScore(p, maxProperty));
+  localStorage.setItem('c', calcScore(s, maxSociety));
 
   const age = localStorage.getItem('age');
   const country = localStorage.getItem('country');
@@ -60,7 +63,7 @@ function results() {
 }
 
 function initQuestion() {
-  doc.getElementById('question-text').innerHTML = questions[qn].question;
+  doc.getElementById('question-text').innerHTML = questions[qn].q;
   doc.getElementById('question-number').innerHTML = `Question ${qn + 1} of ${questions.length}`;
   if (previousAnswer == null) {
     doc.getElementById('back_button').style.display = 'none';
@@ -72,9 +75,9 @@ function initQuestion() {
 }
 
 function nextQuestion(mult) {
-  idty += mult * questions[qn].effect.idty;
-  prop += mult * questions[qn].effect.prop;
-  scty += mult * questions[qn].effect.scty;
+  i += mult * questions[qn].e.i;
+  p += mult * questions[qn].e.p;
+  s += mult * questions[qn].e.s;
   qn += 1;
   previousAnswer = mult;
   if (qn < questions.length) {
@@ -89,9 +92,9 @@ function prevQuestion() {
     return;
   }
   qn -= 1;
-  idty -= previousAnswer * questions[qn].effect.idty;
-  prop -= previousAnswer * questions[qn].effect.prop;
-  scty -= previousAnswer * questions[qn].effect.scty;
+  i -= previousAnswer * questions[qn].e.i;
+  p -= previousAnswer * questions[qn].e.p;
+  s -= previousAnswer * questions[qn].e.s;
   previousAnswer = null;
   initQuestion();
 }

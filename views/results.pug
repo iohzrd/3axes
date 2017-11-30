@@ -17,45 +17,26 @@ html
     <h2>In-group: <span class="weight-300" id="in-group-label"></span></h2>
     <div class="axis">
         img(id="img-globalism", src="static/images/globalism.png", height="128pt")
-        <div class="bar globalism" id="bar-globalism">
-            <div class="text-wrapper" id="globalism">
-            </div>
-        </div>
-        <div class="bar tribalism" id="bar-tribalism">
-            <div class="text-wrapper" id="tribalism">
-            </div>
-        </div>
+        <div class="bar globalism" id="bar-globalism"><div class="text-wrapper" id="globalism"></div></div>
+        <div class="bar tribalism" id="bar-tribalism"><div class="text-wrapper" id="tribalism"></div></div>
         img(id="img-tribalism", src="static/images/tribalism.png", height="128pt")
     </div>
 
     <h2>Property: <span class="weight-300" id="property-label"></span></h2>
     <div class="axis">
         img(id="img-collectivism", src="static/images/collectivism.png", height="128pt")
-        <div class="bar collectivism" id="bar-collectivism">
-            <div class="text-wrapper" id="collectivism">
-            </div>
-        </div>
-        <div class="bar privatism" id="bar-privatism">
-            <div class="text-wrapper" id="privatism">
-            </div>
-        </div>
+        <div class="bar collectivism" id="bar-collectivism"><div class="text-wrapper" id="collectivism"></div></div>
+        <div class="bar privatism" id="bar-privatism"><div class="text-wrapper" id="privatism"></div></div>
         img(id="img-privatism", src="static/images/privatism.png", height="128pt")
     </div>
 
-    <h2>Culture: <span class="weight-300" id="society-label"></span></h2>
+    <h2>Society: <span class="weight-300" id="society-label"></span></h2>
     <div class="axis">
-        img(id="img-diversity", src="static/images/diversity.png", height="128pt")
-        <div class="bar diversity" id="bar-diversity">
-            <div class="text-wrapper" id="diversity">
-            </div>
-        </div>
-        <div class="bar cohesion" id="bar-cohesion">
-            <div class="text-wrapper" id="cohesion">
-            </div>
-        </div>
-        img(id="img-cohesion", src="static/images/cohesion.png", height="128pt")
+        img(id="img-equality", src="static/images/equality.png", height="128pt")
+        <div class="bar equality" id="bar-equality"><div class="text-wrapper" id="equality"></div></div>
+        <div class="bar hierarchy" id="bar-hierarchy"><div class="text-wrapper" id="hierarchy"></div></div>
+        img(id="img-hierarchy", src="static/images/hierarchy.png", height="128pt")
     </div>
-
     <br>
 
     <form id="demographic-form" align="center" action="/results" method="post">
@@ -377,7 +358,7 @@ html
         <input value="Sort" class="button" type="submit"><br>
     </form>
     <p> (hover over point for details) </p>
-    <div id="visualization"></div>
+    <div class="visualization" id="visualization"></div>
 
     //- <br>
     //- <button class="button" onclick="location.href='/';" style="background-color: #2196f3;">Back</button> <br>
