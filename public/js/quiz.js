@@ -9,10 +9,10 @@ let s = 0;
 let qn = 0;
 let previousAnswer = null;
 
-for (let i = 0; i < questions.length; i++) {
-  maxIdentity += Math.abs(questions[i].e.i);
-  maxProperty += Math.abs(questions[i].e.p);
-  maxSociety += Math.abs(questions[i].e.s);
+for (let a = 0; a < questions.length; a++) {
+  maxIdentity += Math.abs(questions[a].e.i);
+  maxProperty += Math.abs(questions[a].e.p);
+  maxSociety += Math.abs(questions[a].e.s);
 }
 
 
@@ -45,7 +45,7 @@ function calcScore(score, max) {
 function results() {
   localStorage.setItem('i', calcScore(i, maxIdentity));
   localStorage.setItem('p', calcScore(p, maxProperty));
-  localStorage.setItem('c', calcScore(s, maxSociety));
+  localStorage.setItem('s', calcScore(s, maxSociety));
 
   const age = localStorage.getItem('age');
   const country = localStorage.getItem('country');
@@ -55,10 +55,18 @@ function results() {
   const sex = localStorage.getItem('sex');
   const identity = localStorage.getItem('i');
   const property = localStorage.getItem('p');
-  const society = localStorage.getItem('c');
+  const society = localStorage.getItem('s');
 
   post('/quiz', {
-    age, country, income, race, religion, sex, identity, property, society,
+    age,
+    country,
+    income,
+    race,
+    religion,
+    sex,
+    identity,
+    property,
+    society,
   });
 }
 

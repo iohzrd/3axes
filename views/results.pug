@@ -5,14 +5,11 @@ html
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700")
         script.
             var globalResults = !{all}
-        script(src="static/js/ideologies.js")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js")
 
 <body>
     <h1>3axes (BETA)</h1>
     <hr>
-
-    <h2>Closest Match: <span class="weight-300" id="ideology-label"></span></h2>
 
     <h2>In-group: <span class="weight-300" id="in-group-label"></span></h2>
     <div class="axis">
@@ -24,18 +21,18 @@ html
 
     <h2>Property: <span class="weight-300" id="property-label"></span></h2>
     <div class="axis">
-        img(id="img-collectivism", src="static/images/collectivism.png", height="128pt")
-        <div class="bar collectivism" id="bar-collectivism"><div class="text-wrapper" id="collectivism"></div></div>
-        <div class="bar privatism" id="bar-privatism"><div class="text-wrapper" id="privatism"></div></div>
-        img(id="img-privatism", src="static/images/privatism.png", height="128pt")
+        img(id="img-communalism", src="static/images/communalism.png", height="128pt")
+        <div class="bar communalism" id="bar-communalism"><div class="text-wrapper" id="communalism"></div></div>
+        <div class="bar propertarianism" id="bar-propertarianism"><div class="text-wrapper" id="propertarianism"></div></div>
+        img(id="img-propertarianism", src="static/images/propertarianism.png", height="128pt")
     </div>
 
-    <h2>Society: <span class="weight-300" id="society-label"></span></h2>
+    <h2> Culture: <span class="weight-300" id="society-label"></span></h2>
     <div class="axis">
-        img(id="img-equality", src="static/images/equality.png", height="128pt")
-        <div class="bar equality" id="bar-equality"><div class="text-wrapper" id="equality"></div></div>
-        <div class="bar hierarchy" id="bar-hierarchy"><div class="text-wrapper" id="hierarchy"></div></div>
-        img(id="img-hierarchy", src="static/images/hierarchy.png", height="128pt")
+        img(id="img-heterogeneity", src="static/images/heterogeneity.png", height="128pt")
+        <div class="bar heterogeneity" id="bar-heterogeneity"><div class="text-wrapper" id="heterogeneity"></div></div>
+        <div class="bar homogeneity" id="bar-homogeneity"><div class="text-wrapper" id="homogeneity"></div></div>
+        img(id="img-homogeneity", src="static/images/homogeneity.png", height="128pt")
     </div>
     <br>
 

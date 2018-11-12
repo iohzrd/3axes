@@ -19,7 +19,6 @@ const options = {
   },
   tooltip(point) {
     return `
-      <p>Ideology: <b>${getIdeology(point.x, point.y, point.z)}</b></p>
       <p>In-group: <b>${setLabel(point.x, idtyArray)}(${point.x})</b></p>
       <p>Property: <b>${setLabel(point.y, propArray)}(${point.y})</b></p>
       <p>Culture:  <b>${setLabel(point.z, sctyArray)}(${point.z})</b></p>
@@ -29,7 +28,7 @@ const options = {
   xLabel: 'In-group(globalism)',
   xMin: 0,
   xMax: 100,
-  yLabel: 'Property(collectivism)',
+  yLabel: 'Property(communalism)',
   yMin: 0,
   yMax: 100,
   zLabel: 'Culture(diversity)',
@@ -48,7 +47,10 @@ function drawVisualization(x, y, z, count) {
 
 globalResults.forEach((singleResult) => {
   const {
-    identity, property, society, count,
+    identity,
+    property,
+    society,
+    count,
   } = singleResult.results;
   drawVisualization(identity, property, society, count);
 });

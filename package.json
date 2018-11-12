@@ -17,15 +17,16 @@
   },
   "homepage": "https://github.com/RiskyMcdanger/3axes#readme",
   "devDependencies": {
-    "eslint": "^4.11.0",
+    "eslint": "^4.17.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.14.12"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mongodb": "^2.2.33",
+    "mongodb": "^3.0.2",
+    "npm-check-updates": "^2.14.0",
     "pug": "^2.0.0-rc.4"
   }
 }
